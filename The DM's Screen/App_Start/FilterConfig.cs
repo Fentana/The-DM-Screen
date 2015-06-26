@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace The_DM_s_Screen
+namespace TheDmScreen
 {
     public class FilterConfig
     {

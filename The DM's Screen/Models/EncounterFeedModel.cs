@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
-namespace The_DM_s_Screen.Models
+namespace TheDmScreen.Models
 {
     public class EncounterFeedModel
     {
@@ -17,7 +14,7 @@ namespace The_DM_s_Screen.Models
         public List<string> Actions;
     }
 
-    public struct Character
+    public class Character
     {
         public string Name;
         public string Portrait;

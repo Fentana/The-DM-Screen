@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace The_DM_s_Screen
+namespace TheDmScreen
 {
     public class RouteConfig
     {

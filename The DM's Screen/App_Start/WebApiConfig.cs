@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace The_DM_s_Screen
+namespace TheDmScreen
 {
     public static class WebApiConfig
     {

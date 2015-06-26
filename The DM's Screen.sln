@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The_DM_s_Screen", "The DM's Screen\The_DM_s_Screen.csproj", "{644AF797-6C87-46DE-8CE1-42371DB8B238}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheDMScreen", "The DM's Screen\TheDMScreen.csproj", "{644AF797-6C87-46DE-8CE1-42371DB8B238}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheDmScreen.Test", "TheDmScreen.Test\TheDmScreen.Test.csproj", "{BE056788-5BC2-43E8-AE2F-4BA196DEE29A}"
 EndProject

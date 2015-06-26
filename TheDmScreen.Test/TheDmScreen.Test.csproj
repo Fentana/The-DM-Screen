@@ -106,9 +106,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\The DM%27s Screen\The_DM_s_Screen.csproj">
+    <ProjectReference Include="..\The DM%27s Screen\TheDMScreen.csproj">
       <Project>{644AF797-6C87-46DE-8CE1-42371DB8B238}</Project>
-      <Name>The_DM_s_Screen</Name>
+      <Name>TheDMScreen</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
