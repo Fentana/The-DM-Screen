@@ -58,6 +58,7 @@ namespace TheDmScreen.Controllers
                     beorn, amper, klarg, pecos, aramil, timeKeeper
                 },
                 DrawDmDrawer = true,
+                BattleMapImage = "../../Content/location.PNG",
                 FeedEntries = new List<EncounterFeedEntry>()
                 {
                     new EncounterFeedEntry()

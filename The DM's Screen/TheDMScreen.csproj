@@ -177,6 +177,18 @@
   <ItemGroup>
     <Content Include="Scripts\Foundation\img\.gitkeep" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\EncounterFeed.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\SidebarTurnOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\DmTurnActionDrawer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\LocalMap.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

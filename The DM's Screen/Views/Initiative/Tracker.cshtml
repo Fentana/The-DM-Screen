@@ -6,79 +6,29 @@
     ViewBag.Title = "Encounter Feed <mockup>";
 }
 
-<body>
+<body class="large-11 columns large-centered">
     <div class="row">
         <div class="large-12 columns">
-            <div class="panel">
-                <h1>Encounter Feed &lt;Mockup&gt;</h1>
+            <div>
+                <h1>Encounter Feed &lt;Mockup&gt;</h1><br/>
             </div>
         </div>
     </div>
+    <div class="large-2 columns">
+        @Html.Partial("~/Views/Partials/SidebarTurnOrder.cshtml", @Model)
+    </div>
 
-@if (@Model.DrawDmDrawer)
-{
+    <div class="large-6 columns">
+        @if (@Model.DrawDmDrawer)
+        {
+            @Html.Partial("~/Views/Partials/DmTurnActionDrawer.cshtml", @Model)
+        }
+        @Html.Partial("~/Views/Partials/EncounterFeed.cshtml", @Model)
+    </div>
 
-    <form class="panel">
-        <div class="row">
-            <div class="large-12 columns">
-                <h3>@Model.TurnOrder.First().Name's Turn</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="large-12 columns">
-                <label>
-                    Turn Action
-                    <textarea placeholder="What happened in this turn?"></textarea>
-                    <div class="button">Commit Turn</div>
-                </label>
-            </div>
-        </div>
-    </form>
-}
-    <div class="row">
-        <div class="large-3 columns">
-            <div class="panel">
-                <h3>Pending Turns</h3>
-                <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-                    @foreach (var character in Model.TurnOrder)
-                    {
-                        <div class="row">
-                            <div class="small-centered column">@character.Name</div>
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div class="large-6 columns">
-            @foreach (var feedEntry in Model.FeedEntries)
-            {
-                <div class="row">
-                    <div class="columns">
-                        <h4>@feedEntry.ActingCharacter.Name</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-2 columns">
-                        <img src="@feedEntry.ActingCharacter.Portrait" />
-                    </div>
-                    <div class="large-10 columns">
-                        @foreach (var action in @feedEntry.Actions)
-                        {
-                            <p>@action</p>
-                        }
-                    </div>
-                </div>
-                <hr />
-            }
-        </div>
-
-    <aside class="large-3 columns hide-for-small">
-        <h3>Local Map</h3>
-        <p><img src="../../Content/location.PNG" /></p>
-        <p><i>You will be able to mouse over and view the battlemap at full resolution</i></p>
+    <aside class="large-4 columns hide-for-small">
+        @Html.Partial("~/Views/Partials/LocalMap.cshtml", @Model)
     </aside>
-</div>
 
     <footer class="row">
         <div class="large-12 columns">

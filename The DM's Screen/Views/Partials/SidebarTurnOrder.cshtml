@@ -1,0 +1,15 @@
+﻿@model TheDmScreen.Models.EncounterFeedModel
+
+<div class="row">
+    <div class="panel">
+        <h3>Pending Turns</h3>
+        <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+            @foreach (var character in Model.TurnOrder)
+            {
+                <div class="row">
+                    <div class="small-centered column">@character.Name</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
