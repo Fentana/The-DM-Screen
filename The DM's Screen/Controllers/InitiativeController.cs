@@ -57,6 +57,7 @@ namespace TheDmScreen.Controllers
                 {
                     beorn, amper, klarg, pecos, aramil, timeKeeper
                 },
+                DrawDmDrawer = true,
                 FeedEntries = new List<EncounterFeedEntry>()
                 {
                     new EncounterFeedEntry()

@@ -6,6 +6,7 @@ namespace TheDmScreen.Models
     {
         public IEnumerable<Character> TurnOrder;
         public IEnumerable<EncounterFeedEntry> FeedEntries;
+        public bool DrawDmDrawer;
     }
 
     public struct EncounterFeedEntry

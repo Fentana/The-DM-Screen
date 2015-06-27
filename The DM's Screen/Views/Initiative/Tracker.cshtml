@@ -15,6 +15,26 @@
         </div>
     </div>
 
+@if (@Model.DrawDmDrawer)
+{
+
+    <form class="panel">
+        <div class="row">
+            <div class="large-12 columns">
+                <h3>@Model.TurnOrder.First().Name's Turn</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <label>
+                    Turn Action
+                    <textarea placeholder="What happened in this turn?"></textarea>
+                    <div class="button">Commit Turn</div>
+                </label>
+            </div>
+        </div>
+    </form>
+}
     <div class="row">
         <div class="large-3 columns">
             <div class="panel">
@@ -26,8 +46,7 @@
                             <div class="small-centered column">@character.Name</div>
                         </div>
                     }
-                </div><br/>
-                <div class="button">Commit Turn</div>
+                </div>
             </div>
         </div>
 
