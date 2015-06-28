@@ -12,10 +12,7 @@
                 <img src="@feedEntry.ActingCharacter.Portrait" />
             </div>
             <div class="large-10 columns">
-                @foreach (var action in @feedEntry.Actions)
-                {
-                    <p>@action</p>
-                }
+                @feedEntry.Description
             </div>
         </div>
         <hr />

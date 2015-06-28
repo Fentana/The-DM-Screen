@@ -11,8 +11,16 @@
             <label>
                 Turn Action
                 <textarea placeholder="What happened in this turn?"></textarea>
-                <div class="button">Commit Turn</div>
+                <div id="DmCommit" class="button">Commit Turn</div>
             </label>
         </div>
     </div>
 </form>
+
+<script>
+    $(document).ready(function () {
+        $("#DmCommit").click(function() {
+            alert("bam");
+        });
+    });
+</script>

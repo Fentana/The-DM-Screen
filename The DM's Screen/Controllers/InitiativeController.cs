@@ -11,6 +11,11 @@ namespace TheDmScreen.Controllers
         //
         // GET: /Initiative/
 
+        public ActionResult AddCharacter()
+        {
+            return View();
+        }
+
         // TODO: Add Database so we don't have to populate all of this nonsense here
         public ActionResult Tracker()
         {
@@ -64,60 +69,37 @@ namespace TheDmScreen.Controllers
                     new EncounterFeedEntry()
                     {
                         ActingCharacter = timeKeeper,
-                        Actions = new List<string>()
-                        {
-                            "Casts Time Ray on Klarg, dealing 13 \"time\" (cold) damage"
-                        }
+                        Description = "Casts Time Ray on Klarg, dealing 13 \"time\" (cold) damage"
                     },
                     new EncounterFeedEntry()
                     {
                         ActingCharacter = aramil,
-                        Actions = new List<string>()
-                        {
-                            "Casts \"Goodberry\" and consumes 5 berries, regaining 5 HP",
-                            "Gives 5 berries to Amper"
-                        }
+                        Description = "Casts \"Goodberry\" and consumes 5 berries, regaining 5 HP; gives 5 berries to Amper"
                     },
                     new EncounterFeedEntry()
                     {
                         ActingCharacter = pecos,
-                        Actions = new List<string>()
-                        {
-                            "Looses an arrow from his bow at Klarg, which was unfortunately deflected by Klarg"
-                        }
+                        Description = "Looses an arrow from his bow at Klarg, which was unfortunately deflected by the bugbear"
                     },
                     new EncounterFeedEntry()
                     {
                         ActingCharacter = klarg,
-                        Actions = new List<string>()
-                        {
-                            "Wails on Amper with his Morningstar, dealing 16 bludgeoning damage"
-                        }
+                        Description = "Wails on Amper with his Morningstar, dealing 16 bludgeoning damage"
                     },
                     new EncounterFeedEntry()
                     {
                         ActingCharacter = amper,
-                        Actions = new List<string>()
-                        {
-                            "Performs a song to bardically inspire Beorn, who may now add 1d8 to any roll of his choice"
-                        }
+                        Description = "Performs a song to bardically inspire Beorn, who may now add 1d8 to any roll of his choice"
                     },
                     new EncounterFeedEntry()
                     {
                         ActingCharacter = beorn,
-                        Actions = new List<string>()
-                        {
-                            "Uses \"Lay on Hands\" to revive Aramil with 1 HP",
-                            "Readies his Shield of Faith and prepares for an attack"
-                        }
+                        Description = "Uses \"Lay on Hands\" to revive Aramil with 1 HP; readies his Shield of Faith and prepares for an attack"
                     },
                     new EncounterFeedEntry()
                     {
                         ActingCharacter = timeKeeper,
-                        Actions = new List<string>()
-                        {
-                            "Throws a \"Ball of Time\" at Klarg, but Klarg dodges out of the way"
-                        }
+                        Description = "Throws a \"Ball of Time\" at Klarg, but Klarg dodges out of the way"
                     }
                 }
             };

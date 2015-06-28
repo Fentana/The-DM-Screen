@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace TheDmScreen.Models
 {
@@ -10,15 +11,22 @@ namespace TheDmScreen.Models
         public bool DrawDmDrawer;
     }
 
-    public struct EncounterFeedEntry
+    public class EncounterFeedEntry
     {
         public Character ActingCharacter;
-        public List<string> Actions;
+        public string Description;
     }
 
     public class Character
     {
         public string Name;
         public string Portrait;
+    }
+
+    // I'll deal with this in a bit
+    public class EncounterFeedContext : DbContext
+    {
+        public DbSet<Character> Characters { get; set; }
+        public DbSet<EncounterFeedEntry> Actions { get; set; }
     }
 }
