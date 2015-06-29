@@ -2,23 +2,35 @@
 
 <form class="panel">
     <div class="row">
-        <div class="large-12 columns">
-            <h3>@Model.Initiatives.OrderBy(m => m.TurnOrder).First().Character.Name's Turn</h3>
-        </div>
+        <h3>@Model.Initiatives.OrderBy(m => m.TurnOrder).First().Character.Name's Turn</h3>
+        <br/>
     </div>
     <div class="row">
-        <div class="large-12 columns">
-            <label>
-                Turn Action
-                <textarea id="description" placeholder="What happened in this turn?"></textarea>
-                <div id="DmCommit" class="button">Commit Turn</div>
-                <input type="hidden" id="encounterId" value="@Model.EncounterId"/>
-            </label>
+        <h5>Action Description</h5>
+        <div class="large-10 columns">
+            <textarea onkeyup="auto_grow(this)" id=" description" placeholder="What happened in this turn?"></textarea>
+        </div>
+        <div class="large-2 columns">
+            <div id="DmCommit" class="button">Commit</div>
         </div>
     </div>
 </form>
 
+<style>
+    textarea{
+        resize:none;
+        overflow:hidden;
+        min-height:50px;
+        max-height:100px;
+    }
+</style>
+
 <script>
+    function auto_grow(element) {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight) + "px";
+    }
+
     $(document).ready(function () {
         $("#DmCommit").click(function () {
             var commitData = { encounterId: $("#encounterId").val(), description: $("#description").val()};

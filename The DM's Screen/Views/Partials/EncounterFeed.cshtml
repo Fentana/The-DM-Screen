@@ -3,17 +3,30 @@
 @foreach (var feedEntry in Model.FeedEntries.OrderByDescending(f => f.EncounterFeedEntryId))
 {
     <div class="row">
-        <div class="columns">
-            <h4>@feedEntry.ActingCharacter.Name</h4>
-        </div>
-    </div>
-    <div class="row">
         <div class="large-2 columns">
-            <img src="@feedEntry.ActingCharacter.Portrait" />
+            <img src="@feedEntry.ActingCharacter.Portrait"/>
         </div>
         <div class="large-10 columns">
-            @feedEntry.Description
+            <div class="row">
+                <h4>@feedEntry.ActingCharacter.Name</h4>
+            </div>
+            <div class="row">
+                <div class="medium-10 columns">
+                    @feedEntry.Description
+                </div>
+                <div class="medium-2 columns">
+                    <div class="editFeed row button" value="@feedEntry.EncounterFeedEntryId">Edit</div>
+                </div>
+            </div>
         </div>
     </div>
     <hr />
 }
+
+<script>
+    $(document).ready(function() {
+        $(".editFeed").click(function() {
+            alert($(this).attr("value"));
+        });
+    });
+</script>
