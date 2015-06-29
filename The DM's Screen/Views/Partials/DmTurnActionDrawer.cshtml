@@ -3,15 +3,16 @@
 <form class="panel">
     <div class="row">
         <div class="large-12 columns">
-            <h3>@Model.Participants.First().Name's Turn</h3>
+            <h3>@Model.Initiatives.OrderBy(m => m.TurnOrder).First().Character.Name's Turn</h3>
         </div>
     </div>
     <div class="row">
         <div class="large-12 columns">
             <label>
                 Turn Action
-                <textarea placeholder="What happened in this turn?"></textarea>
+                <textarea id="description" placeholder="What happened in this turn?"></textarea>
                 <div id="DmCommit" class="button">Commit Turn</div>
+                <input type="hidden" id="encounterId" value="@Model.EncounterId"/>
             </label>
         </div>
     </div>
@@ -19,8 +20,26 @@
 
 <script>
     $(document).ready(function () {
-        $("#DmCommit").click(function() {
-            alert("bam");
+        $("#DmCommit").click(function () {
+            var commitData = { encounterId: $("#encounterId").val(), description: $("#description").val()};
+
+            $.ajax({
+                url: "/Initiative/CommitTurn",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(commitData),
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    var url = '@Url.Action("Encounter", "Initiative", new { id = "__id__" })';
+                    window.location.href = url.replace('__id__', $("#encounterId").val());
+                },
+                error: function (xhr) {
+                    alert("Oops, something got screwed up here");
+                }
+            });
         });
     });
 </script>

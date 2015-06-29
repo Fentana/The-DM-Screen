@@ -1,19 +1,19 @@
 ﻿@model TheDmScreen.Models.Encounter
 
-    @foreach (var feedEntry in Model.FeedEntries)
-    {
-        <div class="row">
-            <div class="columns">
-                <h4>@feedEntry.ActingCharacter.Name</h4>
-            </div>
+@foreach (var feedEntry in Model.FeedEntries.OrderByDescending(f => f.EncounterFeedEntryId))
+{
+    <div class="row">
+        <div class="columns">
+            <h4>@feedEntry.ActingCharacter.Name</h4>
         </div>
-        <div class="row">
-            <div class="large-2 columns">
-                <img src="@feedEntry.ActingCharacter.Portrait" />
-            </div>
-            <div class="large-10 columns">
-                @feedEntry.Description
-            </div>
+    </div>
+    <div class="row">
+        <div class="large-2 columns">
+            <img src="@feedEntry.ActingCharacter.Portrait" />
         </div>
-        <hr />
-    }
+        <div class="large-10 columns">
+            @feedEntry.Description
+        </div>
+    </div>
+    <hr />
+}

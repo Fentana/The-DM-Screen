@@ -119,7 +119,12 @@
     </Compile>
     <Compile Include="Controllers\InitiativeController.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Campaign.cs" />
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\DmScreenContext.cs" />
     <Compile Include="Models\Encounter.cs" />
+    <Compile Include="Models\EncounterFeedEntry.cs" />
+    <Compile Include="Models\Initiative.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

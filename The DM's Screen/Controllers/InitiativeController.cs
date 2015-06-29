@@ -9,49 +9,84 @@ namespace TheDmScreen.Controllers
 {
     public class InitiativeController : Controller
     {
-        private readonly EncounterFeedContext context;
+        private readonly DmScreenContext context;
 
         public InitiativeController()
         {
-            context = new EncounterFeedContext();
+            context = new DmScreenContext();
         }
+
         public ActionResult Encounter(int id = -1)
         {
-            Encounter desiredEncounter;
-
             if (!context.Encounters.Any())
             {
-                desiredEncounter = new Encounter
-                {
-                    BattleMapImage = "",
-                    FeedEntries = new List<EncounterFeedEntry>()
-                    {
-                        
-                    },
-                    Participants = new List<Character>()
-                    {
-                        context.Characters.Single(m => m.Name.Equals("Ellywick")),
-                        context.Characters.Single(m => m.Name.Equals("Hellbaby")),
-                        context.Characters.Single(m => m.Name.Equals("Steelbeard")),
-                        context.Characters.Single(m => m.Name.Equals("Trickfoot"))
-                    }
-                };
-
-                context.Encounters.Add(desiredEncounter);
-                context.SaveChanges();
+                return View(CreateDefaultEncounter());
             }
-            else
+
+            if (id == -1) // No specified id
             {
-                if (id == -1)
-                {
-                    desiredEncounter = context.Encounters.First();
-                }
-                else desiredEncounter = context.Encounters.First(e => e.EncounterId.Equals(id));
-
-                desiredEncounter.FeedEntries = new List<EncounterFeedEntry>();
+                return View(context.Encounters.First());
             }
+            
+            return View(context.Encounters.First(e => e.EncounterId.Equals(id)));
+        }
 
-            return View(desiredEncounter);
+        [HttpPost]
+        public JsonResult CommitTurn(int encounterId, string description)
+        {
+            var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
+            var actingCharacter = encounter.Initiatives.OrderBy(p => p.TurnOrder).First().Character;
+
+            var feedEntry = new EncounterFeedEntry
+            {
+                ActingCharacter = actingCharacter,
+                Description = description
+            };
+            context.Actions.Add(feedEntry);
+
+            // Rotate the Turn Order
+            RotateInitiatives(encounter, actingCharacter);
+
+            encounter.FeedEntries.Add(feedEntry);
+            context.SaveChanges();
+
+            return Json("Successfully posted");
+        }
+
+        private static void RotateInitiatives(Encounter encounter, Character actingCharacter)
+        {
+            foreach (var init in encounter.Initiatives)
+            {
+                if (init.Character.Equals(actingCharacter))
+                {
+                    init.TurnOrder = encounter.Initiatives.Count - 1;
+                    continue;
+                }
+
+                init.TurnOrder--;
+            }
+        }
+
+        // Default Encounter just for the hell of it
+        private Encounter CreateDefaultEncounter()
+        {
+            var desiredEncounter = new Encounter
+            {
+                BattleMapImage = "",
+                FeedEntries = new List<EncounterFeedEntry>(),
+                Initiatives = new List<Initiative>()
+                {
+                    new Initiative
+                    {
+                        Character = context.Characters.Single(m => m.Name.Equals("Dungeon Master")),
+                        TurnOrder = 0
+                    }                   
+                }
+            };
+
+            context.Encounters.Add(desiredEncounter);
+            context.SaveChanges();
+            return desiredEncounter;
         }
     }
 }

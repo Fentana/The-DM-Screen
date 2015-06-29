@@ -1,22 +1,23 @@
 using System.Collections.Generic;
 using TheDmScreen.Models;
 
-namespace The_DM_s_Screen.Migrations
+namespace TheDmScreen.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<TheDmScreen.Models.EncounterFeedContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<TheDmScreen.Models.DmScreenContext>
     {
         public Configuration()
         {
             // ENABLED ONLY FOR DEVELOPMENT PURPOSES
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(TheDmScreen.Models.EncounterFeedContext context)
+        protected override void Seed(TheDmScreen.Models.DmScreenContext context)
         {
             // Characters
             var dm = new Character {Name = "Dungeon Master", Portrait = "../../Content/dungeonmaster.jpg"};
