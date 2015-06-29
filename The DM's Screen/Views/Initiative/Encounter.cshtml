@@ -1,4 +1,4 @@
-﻿@model TheDmScreen.Models.EncounterFeedModel
+﻿@model TheDmScreen.Models.Encounter
 <link rel="stylesheet" href="../../Scripts/Foundation/css/foundation.css">
 <link rel="stylesheet" href="../../Scripts/Foundation/js/foundation.min.js">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -11,7 +11,7 @@
     <div class="row">
         <div class="large-12 columns">
             <div>
-                <h1>Encounter Feed &lt;Mockup&gt;</h1><br/>
+                <h1>@Model.EncounterId Encounter Feed &lt;Mockup&gt;</h1><br/>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
     </div>
 
     <div class="large-6 columns">
-        @if (@Model.DrawDmDrawer)
+        @if (false)
         {
             @Html.Partial("~/Views/Partials/DmTurnActionDrawer.cshtml", @Model)
         }

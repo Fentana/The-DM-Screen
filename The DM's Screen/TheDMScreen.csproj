@@ -118,7 +118,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\InitiativeController.cs" />
-    <Compile Include="Models\EncounterFeedModel.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Encounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,10 +129,18 @@
     <Content Include="Content\amper.jpg" />
     <Content Include="Content\aramil.jpg" />
     <Content Include="Content\beorn.gif" />
+    <Content Include="Content\dungeonmaster.jpg" />
+    <Content Include="Content\ellywick.jpg" />
+    <Content Include="Content\hellbaby.gif" />
+    <Content Include="Content\jeff.jpg" />
     <Content Include="Content\klarg.jpg" />
     <Content Include="Content\location.PNG" />
-    <Content Include="Content\pecosbill.jpg" />
+    <Content Include="Content\pecos.jpg" />
+    <Content Include="Content\randy.jpg" />
+    <Content Include="Content\Steelbeard.jpg" />
     <Content Include="Content\timekeeper.jpg" />
+    <Content Include="Content\trickfoot.PNG" />
+    <Content Include="Content\Varo.JPG" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Foundation\css\foundation.css" />
     <Content Include="Scripts\Foundation\css\foundation.min.css" />
@@ -162,7 +171,9 @@
     <Content Include="Scripts\Foundation\js\vendor\modernizr.js" />
     <Content Include="Scripts\Foundation\js\vendor\placeholder.js" />
     <Content Include="Scripts\Foundation\robots.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -178,7 +189,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Initiative\Tracker.cshtml" />
+    <Content Include="Views\Initiative\Encounter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\Foundation\img\.gitkeep" />

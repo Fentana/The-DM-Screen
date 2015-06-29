@@ -1,10 +1,10 @@
-﻿@model TheDmScreen.Models.EncounterFeedModel
+﻿@model TheDmScreen.Models.Encounter
 
 <div class="row">
     <div class="panel">
         <h3>Pending Turns</h3>
         <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-            @foreach (var character in Model.TurnOrder)
+            @foreach (var character in Model.Participants)
             {
                 <div class="row">
                     <div class="small-centered column">@character.Name</div>
