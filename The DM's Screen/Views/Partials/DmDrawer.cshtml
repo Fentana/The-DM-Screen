@@ -1,0 +1,87 @@
+﻿@model TheDmScreen.Models.Encounter
+
+<form class="panel">
+    <div class="row">
+        <h3>@Model.Initiatives.OrderBy(m => m.TurnOrder).First().Character.Name's Turn</h3>
+        <br />
+    </div>
+    <div class="row">
+        <h5>Action Description</h5>
+        <div class="large-12 columns">
+            <textarea onkeyup=" auto_grow(this) " id="description" placeholder="What happened in this turn?"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="button-group even-3">
+            <li id="EntryCreate" class="button">Commit</li>
+            <li id="EntrySkip" class="button">Skip</li>
+            <li id="EntryHold" class="button">Hold</li>
+        </ul>
+    </div>
+</form>
+
+<style>
+    textarea{
+        resize:none;
+        overflow:hidden;
+        min-height:50px;
+        max-height:100px;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        // Create a new entry
+        $("#EntryCreate").click(function () {
+            var commitData = { encounterId: $("#encounterId").val(), description: $("#description").val()};
+
+            $.ajax({
+                url: "@Url.Action("Add","FeedEntry")",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(commitData),
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    var url = '@Url.Action("Encounter", "Encounter", new { id = "__id__" })';
+                    window.location.href = url.replace('__id__', $("#encounterId").val());
+                },
+                error: function (xhr) {
+                    alert("Oops, something got screwed up here");
+                }
+            });
+        });
+
+        // Character passes his turn
+        $("#EntrySkip").click(function () {
+            var commitData = { encounterId: $("#encounterId").val()};
+
+            $.ajax({
+                url: "@Url.Action("Skip","FeedEntry")",
+                dataType: "json",
+                type: "PUT",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(commitData),
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    var url = '@Url.Action("Encounter", "Encounter", new { id = "__id__" })';
+                    window.location.href = url.replace('__id__', $("#encounterId").val());
+                },
+                error: function (xhr) {
+                    alert("Oops, something got screwed up here");
+                }
+            });
+        });
+
+        // Character holds his turn
+        $("#EntryHold").click(function () {
+            var data = { entryId: $(this).attr("value") };
+
+            $("#myModal").foundation("reveal", "open");
+        });
+    });
+</script>

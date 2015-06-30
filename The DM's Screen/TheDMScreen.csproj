@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>The_DM_s_Screen</RootNamespace>
-    <AssemblyName>The_DM_s_Screen</AssemblyName>
+    <RootNamespace>TheDmScreen</RootNamespace>
+    <AssemblyName>TheDmScreen</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -114,15 +114,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FeedEntryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\InitiativeController.cs" />
+    <Compile Include="Controllers\EncounterController.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\DmScreenContext.cs" />
     <Compile Include="Models\Encounter.cs" />
+    <Compile Include="Models\EditEntryFake.cs" />
     <Compile Include="Models\EncounterFeedEntry.cs" />
     <Compile Include="Models\Initiative.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,7 +196,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Initiative\Encounter.cshtml" />
+    <Content Include="Views\Encounter\Encounter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\Foundation\img\.gitkeep" />
@@ -206,13 +208,13 @@
     <Content Include="Views\Partials\SidebarTurnOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\DmTurnActionDrawer.cshtml" />
+    <Content Include="Views\Partials\DmDrawer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\LocalMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Initiative\AddCharacter.cshtml" />
+    <Content Include="Views\Encounter\AddCharacter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Partials\EditEntry.cshtml" />

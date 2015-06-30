@@ -1,22 +1,36 @@
-﻿@model TheDmScreen.Models.EncounterFeedEntry
+﻿@model TheDmScreen.Models.EditEntryFake
+
 
 <div class="row">
-    <h3>Edit @Model.ActingCharacter.Name's Turn</h3>
+    <h3>Edit Entry</h3>
     <br />
 </div>
 <div class="row">
     <h5>Action Description</h5>
-    <div class="large-8 columns">
-        <textarea onkeyup=" auto_grow(this) " id="updateDescription">@Model.Description</textarea>
+    <div class="large-12 columns">
+        <textarea onkeyup="auto_grow(this)" id="updateDescription">@Model.FeedEntry.Description</textarea>
     </div>
-    <ul class="button-group large-4 columns">
-        <li id="ModalUpdate" class="button">Update</li>
-        <li id="ModalDelete" class="button">Delete</li>
+</div>
+<div class="row">
+    <ul class="button-group large-12 columns">
+        <li id="characterName" class="button large-4 columns" data-dropdown="characterSelect" data-options="is_hover:true; hover_timeout:5000">
+            @Model.FeedEntry.ActingCharacter.Name
+        </li>
+        <li id="ModalUpdate" class="button large-offset-4 large-2 columns">Update</li>
+        <li id="ModalDelete" class="button large-2 columns">Delete</li>
     </ul>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
-<a class="close-reveal-modal" aria-label="Close">&#215;</a>
-<input type="hidden" id="entryId" value="@Model.EncounterFeedEntryId" />
+<input type="hidden" id="characterId" value="@Model.FeedEntry.ActingCharacter.CharacterId" />
+<input type="hidden" id="entryId" value="@Model.FeedEntry.EncounterFeedEntryId" />
+
+<ul id="characterSelect" class="f-dropdown" data-dropdown-content>
+    @foreach (var character in @Model.Initiatives)
+    {
+        <li value="@character.Character.CharacterId"><a href="#">@character.Character.Name</a></li>
+    }
+</ul>
 
 <style>
     textarea {
@@ -28,21 +42,27 @@
 </style>
 
 <script>
-    function auto_grow(element) {
-        element.style.height = "5px";
-        element.style.height = (element.scrollHeight) + "px";
-    }
-
-    $("#ModalCancel").click(function () {
-        $("#myModal").foundation("reveal", "close");
-    });
-
     $(document).ready(function () {
+
+        // Change the character
+        $("#characterSelect>li").click(function () {
+            var newId = $(this).attr("value");
+            var newName = $(this).find("a").text();
+
+            $("#characterId").val(newId);
+            $("#characterName").text(newName);
+        });
+
+        // Update an existing entry
         $("#ModalUpdate").click(function () {
-            var commitData = { entryId: $("#entryId").val(), description: $("#updateDescription").val() };
+            var commitData = {
+                entryId: $("#entryId").val(),
+                description: $("#updateDescription").val(),
+                characterId: $("#characterId").val()
+            };
 
             $.ajax({
-                url: "/Initiative/UpdateEntry",
+                url: "@Url.Action("Update","FeedEntry")",
                 dataType: "json",
                 type: "PUT",
                 contentType: "application/json; charset=utf-8",
@@ -51,7 +71,7 @@
                 processData: false,
                 cache: false,
                 success: function (data) {
-                    var url = '@Url.Action("Encounter", "Initiative", new { id = "__id__" })';
+                    var url = '@Url.Action("Encounter", "Encounter", new { id = "__id__" })';
                     window.location.href = url.replace('__id__', $("#encounterId").val());
                 },
                 error: function (xhr) {
@@ -60,11 +80,12 @@
             });
         });
 
+        // Delete... I should probably go through and change this to have an "Are you sure?" prompt
         $("#ModalDelete").click(function () {
             var deleteData = { entryId: $("#entryId").val() };
 
             $.ajax({
-                url: "/Initiative/DeleteEntry",
+                url: "@Url.Action("Delete","FeedEntry")",
                 dataType: "json",
                 type: "PUT",
                 contentType: "application/json; charset=utf-8",
@@ -73,7 +94,7 @@
                 processData: false,
                 cache: false,
                 success: function (data) {
-                    var url = '@Url.Action("Encounter", "Initiative", new { id = "__id__" })';
+                    var url = '@Url.Action("Encounter", "Encounter", new { id = "__id__" })';
                     window.location.href = url.replace('__id__', $("#encounterId").val());
                 },
                 error: function (xhr) {

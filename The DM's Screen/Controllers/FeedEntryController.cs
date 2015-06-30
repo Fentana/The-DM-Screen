@@ -1,38 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using TheDmScreen.Models;
 
 namespace TheDmScreen.Controllers
 {
-    public class InitiativeController : Controller
+    public class FeedEntryController : Controller
     {
         private readonly DmScreenContext context;
 
-        public InitiativeController()
+        public FeedEntryController()
         {
             context = new DmScreenContext();
         }
 
-        public ActionResult Encounter(int id = -1)
-        {
-            if (!context.Encounters.Any())
-            {
-                return View(CreateDefaultEncounter());
-            }
-
-            if (id == -1) // No specified id
-            {
-                return View(context.Encounters.First());
-            }
-            
-            return View(context.Encounters.First(e => e.EncounterId.Equals(id)));
-        }
-
         [HttpPost]
-        public JsonResult CommitTurn(int encounterId, string description)
+        public JsonResult Add(int encounterId, string description)
         {
             var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
             var actingCharacter = encounter.Initiatives.OrderBy(p => p.TurnOrder).First().Character;
@@ -53,18 +38,56 @@ namespace TheDmScreen.Controllers
             return Json("Successfully posted");
         }
 
-        [HttpGet]
-        public PartialViewResult EditEntry(int entryId)
+        [HttpPut]
+        public JsonResult Skip(int encounterId)
         {
-            var entry = context.Actions.First(m => m.EncounterFeedEntryId.Equals(entryId));
+            var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
+            var actingCharacter = encounter.Initiatives.OrderBy(p => p.TurnOrder).First().Character;
 
-            return PartialView("~/Views/Partials/EditEntry.cshtml",entry);
+            RotateInitiatives(encounter, actingCharacter);
+            context.SaveChanges();
+
+            return Json("Successfully rotated");
         }
 
         [HttpPut]
-        public JsonResult UpdateEntry(int entryId, string description)
+        public JsonResult Hold(int encounterId)
+        {
+            var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
+            var actingCharacter = encounter.Initiatives.OrderBy(p => p.TurnOrder).First().Character;
+
+            RotateInitiatives(encounter, actingCharacter);
+            context.SaveChanges();
+
+            return Json("Successfully rotated");
+        }
+
+        [HttpGet]
+        public PartialViewResult Edit(int entryId)
+        {
+            var entry = context.Actions.First(m => m.EncounterFeedEntryId.Equals(entryId));
+            var encounter = context.Encounters.First(m => m.FeedEntries.Any(e => e.EncounterFeedEntryId.Equals(entryId)));
+
+            var model = new EditEntryFake
+            {
+                FeedEntry = entry,
+                Initiatives = encounter.Initiatives.OrderBy(c => c.Character.Name).ToList()
+            };
+
+            return PartialView("~/Views/Partials/EditEntry.cshtml", model);
+        }
+
+        [HttpPut]
+        public JsonResult Update(int entryId, string description, int characterId)
         {
             var entry = context.Actions.First(e => e.EncounterFeedEntryId.Equals(entryId));
+
+            if (entry.ActingCharacter.CharacterId != characterId)
+            {
+                var actingCharacter = context.Characters.First(c => c.CharacterId.Equals(characterId));
+
+                entry.ActingCharacter = actingCharacter;
+            }
 
             entry.Description = description;
             context.SaveChanges();
@@ -73,7 +96,7 @@ namespace TheDmScreen.Controllers
         }
 
         [HttpPut]
-        public JsonResult DeleteEntry(int entryId, string description)
+        public JsonResult Delete(int entryId, string description)
         {
             var entry = context.Actions.First(e => e.EncounterFeedEntryId.Equals(entryId));
 
@@ -95,28 +118,6 @@ namespace TheDmScreen.Controllers
 
                 init.TurnOrder--;
             }
-        }
-
-        // Default Encounter just for the hell of it
-        private Encounter CreateDefaultEncounter()
-        {
-            var desiredEncounter = new Encounter
-            {
-                BattleMapImage = "",
-                FeedEntries = new List<EncounterFeedEntry>(),
-                Initiatives = new List<Initiative>()
-                {
-                    new Initiative
-                    {
-                        Character = context.Characters.Single(m => m.Name.Equals("Dungeon Master")),
-                        TurnOrder = 0
-                    }                   
-                }
-            };
-
-            context.Encounters.Add(desiredEncounter);
-            context.SaveChanges();
-            return desiredEncounter;
         }
     }
 }
