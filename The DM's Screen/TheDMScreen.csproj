@@ -215,7 +215,7 @@
     <Content Include="Views\Initiative\AddCharacter.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\EditFeedEntry.cshtml" />
+    <None Include="Views\Partials\EditEntry.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

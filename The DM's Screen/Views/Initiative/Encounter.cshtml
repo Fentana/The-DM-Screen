@@ -1,51 +1,56 @@
 ﻿@model TheDmScreen.Models.Encounter
-<link rel="stylesheet" href="../../Scripts/Foundation/css/foundation.css">
-<link rel="stylesheet" href="../../Scripts/Foundation/js/foundation.min.js">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="../../Scripts/Foundation/css/foundation.css">
+<script src="../../Scripts/Foundation/js/foundation.min.js"></script>
+<script src="../../Scripts/Foundation/js/foundation/foundation.reveal.js"></script>
 
 @{
     ViewBag.Title = "Encounter Feed <mockup>";
 }
 
 <body class="large-11 columns large-centered">
-    <div class="row">
-        <div class="large-12 columns">
-            <div>
-                <h1>@Model.EncounterId Encounter Feed &lt;Mockup&gt;</h1><br/>
+<div class="row">
+    <div class="large-12 columns">
+        <div>
+            <h1>@Model.EncounterId Encounter Feed &lt;Mockup&gt;</h1><br/>
+        </div>
+    </div>
+</div>
+<div class="large-2 columns">
+    @Html.Partial("~/Views/Partials/SidebarTurnOrder.cshtml", @Model)
+</div>
+
+<div class="large-6 columns">
+    @if (true)
+    {
+        @Html.Partial("~/Views/Partials/DmTurnActionDrawer.cshtml", @Model)
+    }
+    @Html.Partial("~/Views/Partials/EncounterFeed.cshtml", @Model)
+</div>
+
+<aside class="large-4 columns hide-for-small">
+    @Html.Partial("~/Views/Partials/LocalMap.cshtml", @Model)
+</aside>
+
+<input type="hidden" id="encounterId" value="@Model.EncounterId"/>
+
+<footer class="row">
+    <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+            <div class="large-5 columns">
+                <p>© Copyright Evan Kirsch 2015</p>
+            </div>
+            <div class="large-7 columns">
+                <ul class="inline-list right">
+                    <li><a href="#">Relevant Page here</a></li>
+                </ul>
             </div>
         </div>
     </div>
-    <div class="large-2 columns">
-        @Html.Partial("~/Views/Partials/SidebarTurnOrder.cshtml", @Model)
-    </div>
-
-    <div class="large-6 columns">
-        @if (true)
-        {
-            @Html.Partial("~/Views/Partials/DmTurnActionDrawer.cshtml", @Model)
-        }
-        @Html.Partial("~/Views/Partials/EncounterFeed.cshtml", @Model)
-    </div>
-
-    <aside class="large-4 columns hide-for-small">
-        @Html.Partial("~/Views/Partials/LocalMap.cshtml", @Model)
-    </aside>
-
-    <input type="hidden" id="encounterId" value="@Model.EncounterId" />
-
-    <footer class="row">
-        <div class="large-12 columns">
-            <hr />
-            <div class="row">
-                <div class="large-5 columns">
-                    <p>© Copyright Evan Kirsch 2015</p>
-                </div>
-                <div class="large-7 columns">
-                    <ul class="inline-list right">
-                        <li><a href="#">Relevant Page here</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+</footer>
 </body>
+
+<script type="text/javascript">
+    $(document).foundation();
+</script>

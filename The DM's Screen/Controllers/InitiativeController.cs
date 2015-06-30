@@ -53,6 +53,36 @@ namespace TheDmScreen.Controllers
             return Json("Successfully posted");
         }
 
+        [HttpGet]
+        public PartialViewResult EditEntry(int entryId)
+        {
+            var entry = context.Actions.First(m => m.EncounterFeedEntryId.Equals(entryId));
+
+            return PartialView("~/Views/Partials/EditEntry.cshtml",entry);
+        }
+
+        [HttpPut]
+        public JsonResult UpdateEntry(int entryId, string description)
+        {
+            var entry = context.Actions.First(e => e.EncounterFeedEntryId.Equals(entryId));
+
+            entry.Description = description;
+            context.SaveChanges();
+
+            return Json("Successfully updated");
+        }
+
+        [HttpPut]
+        public JsonResult DeleteEntry(int entryId, string description)
+        {
+            var entry = context.Actions.First(e => e.EncounterFeedEntryId.Equals(entryId));
+
+            context.Actions.Remove(entry);
+            context.SaveChanges();
+
+            return Json("Successfully deleted");
+        }
+
         private static void RotateInitiatives(Encounter encounter, Character actingCharacter)
         {
             foreach (var init in encounter.Initiatives)
