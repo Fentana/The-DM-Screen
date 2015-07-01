@@ -1,0 +1,76 @@
+﻿@model TheDmScreen.Models.Campaign
+
+<h2>Add Episode</h2>
+
+<input type="hidden" id="campaignId" value="@Model.CampaignId" />
+
+<form>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="row">
+                <h4>Name</h4>
+            </div>
+            <div class="row">
+                <textarea onkeyup=" auto_grow(this) " id="addName"> </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <div class="large-12 columns">
+                <div class="row">
+                    <h4>Description</h4>
+                </div>
+                <div class="row">
+                    <textarea onkeyup=" auto_grow(this) " id="addDescription"> </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="row">
+                <div>
+                    <h4>Summary</h4>
+                </div>
+            </div>
+            <div class="row">
+                <textarea onkeyup=" auto_grow(this) " id="addSummary"> </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12-columns">
+            <div id="commitEpisode" class="large-4 large-offset-4 columns button">Add</div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $("#commitEpisode").click(function () {
+        var commitData = {
+            campaignId: $("#campaignId").val(),
+            name: $("#addName").val(),
+            description: $("#addDescription").val(),
+            summary: $("#addSummary").val()
+        };
+
+        $.ajax({
+            url: "@Url.Action("Add","Episode")",
+            dataType: "json",
+            type: "PUT",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(commitData),
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (data) {
+                var url = '@Url.Action("Index", "Episode", new { id = "__id__" })';
+                window.location.href = url.replace('/__id__', '?campaignId='+ $("#campaignId").val());
+            },
+            error: function (xhr) {
+                alert("Oops, something got screwed up here");
+            }
+        });
+    });
+</script>

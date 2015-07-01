@@ -84,7 +84,7 @@
             cache: false,
             success: function (data) {
                 var url = '@Url.Action("Encounter", "Encounter", new { id = "__id__" })';
-                window.location.href = url.replace('__id__', $("#encounterId").val());
+                window.location.href = url.replace('/__id__', '?encounterId=' + $("#encounterId").val());
             },
             error: function (xhr) {
                 alert("Oops, something got screwed up here");

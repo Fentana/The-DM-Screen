@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TheDmScreen.Models;
-using TheDmScreen.Models.Views;
 
 namespace TheDmScreen.Controllers
 {
@@ -71,7 +70,18 @@ namespace TheDmScreen.Controllers
             var initiative = encounter.Initiatives.First(e => e.Character.CharacterId.Equals(characterId));
 
             encounter.Initiatives.Remove(initiative);
-            
+
+            if (!encounter.Initiatives.Any())
+            {
+                var dm = context.Characters.First(c => c.Name.Equals("Dungeon Master"));
+                encounter.Initiatives.Add( new Initiative()
+                {
+                    Character = dm,
+                    Roll = 20,
+                    TurnOrder = 0
+                });
+            }
+
             context.SaveChanges();
             return Json("We did it!");
         }

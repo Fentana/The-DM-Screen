@@ -23,19 +23,53 @@ namespace TheDmScreen.Controllers
             return View(episode);
         }
 
-        public ActionResult Encounter(int id = -1)
+        public ActionResult Encounter(int encounterId = -1)
         {
             if (!context.Encounters.Any())
             {
                 return View(CreateDefaultEncounter());
             }
 
-            if (id == -1) // No specified id
+            if (encounterId == -1) // No specified id
             {
                 return View(context.Encounters.First());
             }
-            
-            return View(context.Encounters.First(e => e.EncounterId.Equals(id)));
+
+            return View(context.Encounters.First(e => e.EncounterId.Equals(encounterId)));
+        }
+
+        [HttpGet]
+        public PartialViewResult Add(int episodeId)
+        {
+            var episode = context.Episodes.First(c => c.EpisodeId.Equals(episodeId));
+
+            return PartialView(episode);
+        }
+
+        [HttpPut]
+        public JsonResult Add(int episodeId, string name, string description, string summary)
+        {
+            var episode = context.Episodes.First(c => c.EpisodeId.Equals(episodeId));
+
+            episode.Encounters.Add(new Encounter()
+            {
+                Name = name,
+                Description = description,
+                BattleMapImage = "",
+                Order = episode.Encounters.Count(),
+                Initiatives = new List<Initiative>()
+                {
+                    new Initiative()
+                    {
+                        Character = context.Characters.Single(m => m.Name.Equals("Dungeon Master")),
+                        TurnOrder = 0
+                    }
+                }
+            });
+
+            context.SaveChanges();
+
+            return Json("Yes");
         }
 
         // Default Encounter just for the hell of it

@@ -22,5 +22,31 @@ namespace TheDmScreen.Controllers
 
             return View(campaign);
         }
+
+        [HttpGet]
+        public PartialViewResult Add(int campaignId)
+        {
+            var campaign = context.Campaigns.First(c => c.CampaignId.Equals(campaignId));
+
+            return PartialView(campaign);
+        }
+
+        [HttpPut]
+        public JsonResult Add(int campaignId, string name, string description, string summary)
+        {
+            var campaign = context.Campaigns.First(c => c.CampaignId.Equals(campaignId));
+
+            campaign.Episodes.Add(new Episode()
+            {
+                Name = name,
+                Description = description,
+                Summary = summary,
+                Order = campaign.Episodes.Count(),
+            });
+
+            context.SaveChanges();
+
+            return Json("Yes");
+        }
     }
 }
