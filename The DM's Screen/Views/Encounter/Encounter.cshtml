@@ -4,11 +4,22 @@
 <script src="../../Scripts/Foundation/js/foundation.min.js"></script>
 <script src="../../Scripts/Foundation/js/foundation/foundation.reveal.js"></script>
 
+<script type="text/javascript">
+    $(document).foundation();
+
+    function auto_grow(element) {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight) + "px";
+    }
+</script>
+
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 @{
     ViewBag.Title = "Encounter Feed <mockup>";
 }
 
-<body class="large-10 columns large-centered">
+<body class="large-11 columns large-centered">
     <div class="row large-centered">
         <div class="large-12 columns">
             <div>
@@ -25,6 +36,7 @@
         <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
 
+<div class="large-centered">
 @if (!Model.BattleMapImage.IsEmpty())
     {
         <div class="large-2 columns">
@@ -57,10 +69,10 @@
             @Html.Partial("~/Views/Partials/EncounterFeed.cshtml", @Model)
         </div>
     }
-
+    </div>
 
     <input type="hidden" id="encounterId" value="@Model.EncounterId"/>
-
+    <input type="hidden" id="characterId" value="@Model.Initiatives.OrderByDescending(p=>p.TurnOrder).First().Character.CharacterId" />
     <footer class="row">
         <div class="large-12 columns">
             <hr/>
@@ -77,12 +89,3 @@
         </div>
     </footer>
 </body>
-
-<script type="text/javascript">
-    $(document).foundation();
-
-    function auto_grow(element) {
-        element.style.height = "5px";
-        element.style.height = (element.scrollHeight) + "px";
-    }
-</script>

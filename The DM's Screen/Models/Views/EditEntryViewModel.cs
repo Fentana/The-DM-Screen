@@ -5,7 +5,7 @@ using System.Web;
 
 namespace TheDmScreen.Models
 {
-    public class EditEntryFake
+    public class EditEntryViewModel
     {
         public EncounterFeedEntry FeedEntry;
         public List<Initiative> Initiatives;

@@ -14,9 +14,10 @@ namespace TheDmScreen.Models
         {
         }
 
-        public DbSet<Encounter> Encounters { get; set; }
-        public DbSet<Character> Characters { get; set; }
-        public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<EncounterFeedEntry> Actions { get; set; }
+        public DbSet<Campaign> Campaigns { get; set; }
+        public DbSet<Character> Characters { get; set; }
+        public DbSet<Encounter> Encounters { get; set; }
+        public DbSet<Episode> Episodes { get; set; }
     }
 }

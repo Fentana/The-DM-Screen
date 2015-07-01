@@ -114,19 +114,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CampaignController.cs" />
     <Compile Include="Controllers\FeedEntryController.cs" />
+    <Compile Include="Controllers\InitiativeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\EncounterController.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Campaign.cs" />
-    <Compile Include="Models\Character.cs" />
-    <Compile Include="Models\DmScreenContext.cs" />
-    <Compile Include="Models\Encounter.cs" />
-    <Compile Include="Models\EditEntryFake.cs" />
-    <Compile Include="Models\EncounterFeedEntry.cs" />
-    <Compile Include="Models\Initiative.cs" />
+    <Compile Include="Models\Database\Campaign.cs" />
+    <Compile Include="Models\Database\Character.cs" />
+    <Compile Include="Models\Database\DmScreenContext.cs" />
+    <Compile Include="Models\Database\Encounter.cs" />
+    <Compile Include="Models\Database\Episode.cs" />
+    <Compile Include="Models\Views\EditEntryViewModel.cs" />
+    <Compile Include="Models\Database\EncounterFeedEntry.cs" />
+    <Compile Include="Models\Database\Initiative.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -214,9 +217,11 @@
     <Content Include="Views\Partials\LocalMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Encounter\AddCharacter.cshtml" />
+    <Content Include="Views\Partials\AddCharacter.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Campaign\Index.cshtml" />
+    <Content Include="Views\Initiative\Edit.cshtml" />
     <None Include="Views\Partials\EditEntry.cshtml" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,48 @@
+﻿@model List<TheDmScreen.Models.Campaign>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="../../Scripts/Foundation/css/foundation.css">
+<script src="../../Scripts/Foundation/js/foundation.min.js"></script>
+<script src="../../Scripts/Foundation/js/foundation/foundation.reveal.js"></script>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<body class="large-10 columns large-centered">
+    <div class="row large-centered">
+        <h2>Index of Campaigns</h2>
+        <hr />
+    </div>
+
+    @foreach (var campaign in Model)
+    {
+        <div class="row">
+            <div class="large-10 large-centered columns">
+                <div class="row">
+                    <h3>@campaign.Name</h3>
+                </div>
+                <div class="row">
+                    <div>@campaign.Description</div>
+                </div>
+                <hr />
+            </div>
+        </div>
+    }
+
+    <footer class="row">
+        <div class="large-12 columns">
+            <hr />
+            <div class="row">
+                <div class="large-5 columns">
+                    <p>© Copyright Evan Kirsch 2015</p>
+                </div>
+                <div class="large-7 columns">
+                    <ul class="inline-list right">
+                        <li><a href="#">Relevant Page here</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>

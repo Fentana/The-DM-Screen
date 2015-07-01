@@ -9,6 +9,7 @@ namespace TheDmScreen.Models
     {
         public int InitiativeId { get; set; }
         public virtual Character Character { get; set; }
+        public int Roll { get; set; }
         public int TurnOrder { get; set; }
     }
 }

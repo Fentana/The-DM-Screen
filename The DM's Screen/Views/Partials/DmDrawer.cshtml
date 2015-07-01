@@ -1,31 +1,42 @@
 ﻿@model TheDmScreen.Models.Encounter
 
 <form class="panel">
-    <div class="row">
-        <h3>@Model.Initiatives.OrderBy(m => m.TurnOrder).First().Character.Name's Turn</h3>
-        <br />
-    </div>
-    <div class="row">
-        <h5>Action Description</h5>
-        <div class="large-12 columns">
-            <textarea onkeyup=" auto_grow(this) " id="description" placeholder="What happened in this turn?"></textarea>
+    @if (true)
+    {
+        <div class="row">
+            <h3 class="actorName">@Model.Initiatives.OrderBy(m => m.TurnOrder).First().Character.Name's Turn</h3>
+            <br />
         </div>
-    </div>
-    <div class="row">
-        <ul class="button-group even-3">
-            <li id="EntryCreate" class="button">Commit</li>
-            <li id="EntrySkip" class="button">Skip</li>
-            <li id="EntryHold" class="button">Hold</li>
-        </ul>
-    </div>
+        <div class="row">
+            <h5>Action Description</h5>
+            <div class="large-12 columns">
+                <textarea onkeyup=" auto_grow(this) " id="description" placeholder="What happened in this turn?"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <ul class="button-group even-3">
+                <li id="EntryCreate" class="button">Commit</li>
+                <li id="EntrySkip" class="button">Skip</li>
+                <li id="EntryHold" class="button">Hold</li>
+            </ul>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="large-8 columns">
+                <h3 class="actorName">@Model.Initiatives.OrderBy(m => m.TurnOrder).First().Character.Name's Turn</h3>
+            </div>
+        </div>
+    }
 </form>
 
 <style>
-    textarea{
-        resize:none;
-        overflow:hidden;
-        min-height:50px;
-        max-height:100px;
+    textarea {
+        resize: none;
+        overflow: hidden;
+        min-height: 50px;
+        max-height: 100px;
     }
 </style>
 
@@ -33,7 +44,11 @@
     $(document).ready(function () {
         // Create a new entry
         $("#EntryCreate").click(function () {
-            var commitData = { encounterId: $("#encounterId").val(), description: $("#description").val()};
+            var commitData = {
+                encounterId: $("#encounterId").val(),
+                newTurnOrder: $("#sortable").sortable("toArray"),
+                description: $("#description").val()
+            };
 
             $.ajax({
                 url: "@Url.Action("Add","FeedEntry")",
@@ -56,7 +71,7 @@
 
         // Character passes his turn
         $("#EntrySkip").click(function () {
-            var commitData = { encounterId: $("#encounterId").val()};
+            var commitData = { encounterId: $("#encounterId").val() };
 
             $.ajax({
                 url: "@Url.Action("Skip","FeedEntry")",

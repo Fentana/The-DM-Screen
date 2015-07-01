@@ -3,13 +3,68 @@
 <div class="row">
     <div class="panel">
         <h3>Pending Turns</h3>
-        <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-            @foreach (var initiative in Model.Initiatives.OrderBy(i => i.TurnOrder))
-            {
-                <div class="row">
-                    <div class="small-centered column">@initiative.Character.Name</div>
-                </div>
-            }
-        </div>
+        <table class="large-centered">
+            <thead>
+                <tr>
+                    <th>Character Name</th>
+                    <th class="large-text-center">Roll</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="row" id="sortable">
+                @foreach (var initiative in Model.Initiatives.OrderBy(i => i.TurnOrder))
+                {
+                    <tr id="@initiative.Character.CharacterId">
+                        <td>@initiative.Character.Name</td>
+                        <td class="large-text-center">@initiative.Roll</td>
+                        <td><a href="#" aria-label="Close">&#215;</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
+<div class="row">
+    <div class="button small-6 small-centered small-text-center columns" id="AddInitiative">Add</div>
+</div>
+
+<script type="text/javascript">
+    $("#sortable").sortable({
+        update: function(event, ui) {
+            var character = { characterId: $("#sortable").sortable("toArray")[0] };
+
+            $.ajax({
+                url: '@Url.Action("GetName", "Initiative")',
+                data: JSON.stringify(character),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $(".actorName").text(data + "'s Turn");
+                },
+                error: function(xhr) {
+                    alert("Oops, something got screwed up here");
+                }
+            });
+        }
+    });
+
+    $("#sortable").disableSelection();
+
+    $(document).ready(function () {
+
+        $("#editInitiative").click(function () {
+            var data = { encounterId: $("#encounterId").val() };
+
+            $("#myModal").foundation("reveal", "open",{
+                url: '@Url.Action("Edit","Initiative")',
+                data: data,
+                error: function() {
+                    alert("failed loading modal");
+                }
+            });
+        });
+    });
+</script>  

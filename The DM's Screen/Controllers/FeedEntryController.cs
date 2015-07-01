@@ -17,10 +17,13 @@ namespace TheDmScreen.Controllers
         }
 
         [HttpPost]
-        public JsonResult Add(int encounterId, string description)
-        {
+        public JsonResult Add(int encounterId, ICollection<int> newTurnOrder, string description)
+        {   
+            // hackish
+            var actorId = newTurnOrder.First();
+
             var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
-            var actingCharacter = encounter.Initiatives.OrderBy(p => p.TurnOrder).First().Character;
+            var actingCharacter = context.Characters.First(p => p.CharacterId.Equals(actorId));
 
             var feedEntry = new EncounterFeedEntry
             {
@@ -29,8 +32,17 @@ namespace TheDmScreen.Controllers
             };
             context.Actions.Add(feedEntry);
 
+            encounter.Initiatives.First(p => p.Character.CharacterId.Equals(newTurnOrder.ElementAt(0)))
+                .TurnOrder = newTurnOrder.Count()-1;
+
+            for(var i=1; i<newTurnOrder.Count(); ++i)
+            {
+                encounter.Initiatives.First(p => p.Character.CharacterId.Equals(newTurnOrder.ElementAt(i)))
+                    .TurnOrder = i-1;
+            }
+
             // Rotate the Turn Order
-            RotateInitiatives(encounter, actingCharacter);
+            //RotateInitiatives(encounter, actingCharacter);
 
             encounter.FeedEntries.Add(feedEntry);
             context.SaveChanges();
@@ -68,7 +80,7 @@ namespace TheDmScreen.Controllers
             var entry = context.Actions.First(m => m.EncounterFeedEntryId.Equals(entryId));
             var encounter = context.Encounters.First(m => m.FeedEntries.Any(e => e.EncounterFeedEntryId.Equals(entryId)));
 
-            var model = new EditEntryFake
+            var model = new EditEntryViewModel
             {
                 FeedEntry = entry,
                 Initiatives = encounter.Initiatives.OrderBy(c => c.Character.Name).ToList()

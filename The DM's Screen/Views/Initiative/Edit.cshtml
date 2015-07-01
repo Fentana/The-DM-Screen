@@ -1,0 +1,26 @@
+﻿@model List<TheDmScreen.Models.Initiative>
+
+<div class="row">
+    <h3>Edit Initiative</h3>
+    <br />
+</div>
+
+<div class="row">
+    <ul class="button-group large-8 columns large-centered even-3">
+        <li id="InitiativeAdd" class="button">Add</li>
+        <li id="InitiativeUpdate" class="button">Update</li>
+        <li id="InitiativeSort" class="button">Sort By Roll</li>
+    </ul>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<script>
+
+    $(document).ready(function() {
+
+        // Update the Initiative
+        $("#InitiativeUpdate").click(function () {
+            alert($("#sortable").sortable("toArray"));
+        });
+    });
+</script>

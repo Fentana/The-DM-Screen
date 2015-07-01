@@ -20,19 +20,19 @@ namespace TheDmScreen.Migrations
         protected override void Seed(TheDmScreen.Models.DmScreenContext context)
         {
             // Characters
-            var dm = new Character {Name = "Dungeon Master", Portrait = "../../Content/dungeonmaster.jpg"};
-            var ellywick = new Character {Name = "Ellywick", Portrait = "../../Content/ellywick.jpg"};
-            var hellbaby = new Character {Name = "Hellbaby", Portrait = "../../Content/hellbaby.gif"};
-            var steelbeard = new Character {Name = "Steelbeard", Portrait = "../../Content/steelbeard.jpg"};
-            var randy = new Character {Name = "Randy", Portrait = "../../Content/randy.jpg"};
-            var varo = new Character {Name = "Varo", Portrait = "../../Content/varo.jpg"};
-            var jeff = new Character {Name = "Jeff", Portrait = "../../Content/jeff.jpg"};
-            var trickfoot = new Character {Name = "Trickfoot", Portrait = "../../Content/trickfoot.png"};
-            var amper = new Character {Name = "Amper", Portrait = "../../Content/amper.jpg"};
-            var aramil = new Character {Name = "Aramil", Portrait = "../../Content/aramil.jpg"};
-            var beorn = new Character {Name = "Beorn Goddart", Portrait = "../../Content/beorn.gif"};
-            var pecos = new Character {Name = "Pecos", Portrait = "../../Content/pecos.jpg"};
-            var timekeeper = new Character {Name = "The Time Keeper", Portrait = "../../Content/timekeeper.jpg"};
+            var dm = new Character {Name = "Dungeon Master", Portrait = "../../Content/dungeonmaster.jpg", IsPlayer = false};
+            var ellywick = new Character { Name = "Ellywick", Portrait = "../../Content/ellywick.jpg", IsPlayer = true };
+            var hellbaby = new Character { Name = "Hellbaby", Portrait = "../../Content/hellbaby.gif", IsPlayer = true };
+            var steelbeard = new Character { Name = "Steelbeard", Portrait = "../../Content/steelbeard.jpg", IsPlayer = true };
+            var randy = new Character { Name = "Randy", Portrait = "../../Content/randy.jpg", IsPlayer = true };
+            var varo = new Character { Name = "Varo", Portrait = "../../Content/varo.jpg", IsPlayer = false };
+            var jeff = new Character { Name = "Jeff", Portrait = "../../Content/jeff.jpg", IsPlayer = false };
+            var trickfoot = new Character { Name = "Trickfoot", Portrait = "../../Content/trickfoot.png", IsPlayer = true };
+            var amper = new Character { Name = "Amper", Portrait = "../../Content/amper.jpg", IsPlayer = true };
+            var aramil = new Character { Name = "Aramil", Portrait = "../../Content/aramil.jpg", IsPlayer = true };
+            var beorn = new Character { Name = "Beorn Goddart", Portrait = "../../Content/beorn.gif", IsPlayer = true };
+            var pecos = new Character { Name = "Pecos", Portrait = "../../Content/pecos.jpg", IsPlayer = true };
+            var timekeeper = new Character { Name = "The Time Keeper", Portrait = "../../Content/timekeeper.jpg", IsPlayer = true };
 
             context.Characters.AddOrUpdate(
                 p => p.Name, dm,
@@ -47,12 +47,14 @@ namespace TheDmScreen.Migrations
                 p => p.Name,
                 new Campaign
                 {
-                    Name = "Tyranny of Dragons",
+                    Name = "The Tyranny of Dragons",
+                    Description = "The Cult of the Dragon has risen in full force to summon the evil diety Tiamat from her imprisonment in Acheron, and only a ragtag group of adventurers can help unite the Sword Coast to stop them.",
                     Characters = new List<Character> { ellywick, hellbaby, steelbeard, trickfoot, randy, jeff, varo }
                 },
                 new Campaign
                 {
                     Name = "Lost Mines of Phandelver",
+                    Description = "The recently re-established pioneer town of Phandalin is being infiltrated by an unknown force, and it's a race to see who can find the spellforge within the Lost Mine of Phandelver: Wave Echo Cave.",
                     Characters = new List<Character> { amper, aramil, beorn, pecos, timekeeper }
                 });
         }
