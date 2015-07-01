@@ -19,7 +19,7 @@ namespace TheDmScreen.Controllers
         [HttpPost]
         public JsonResult Add(int encounterId, ICollection<int> newTurnOrder, string description)
         {   
-            // hackish
+            // This is because the LINQ can't translate this command, it needs a flat int.
             var actorId = newTurnOrder.First();
 
             var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
@@ -40,9 +40,6 @@ namespace TheDmScreen.Controllers
                 encounter.Initiatives.First(p => p.Character.CharacterId.Equals(newTurnOrder.ElementAt(i)))
                     .TurnOrder = i-1;
             }
-
-            // Rotate the Turn Order
-            //RotateInitiatives(encounter, actingCharacter);
 
             encounter.FeedEntries.Add(feedEntry);
             context.SaveChanges();

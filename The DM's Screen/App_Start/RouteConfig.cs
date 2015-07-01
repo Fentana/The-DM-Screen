@@ -14,12 +14,6 @@ namespace TheDmScreen
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Encounter",
-                url: "Encounter/{id}",
-                defaults: new { controller = "Encounter", action = "Encounter", id = -1 }
-            );
-
-            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Encounter", action = "Encounter", id = -1}

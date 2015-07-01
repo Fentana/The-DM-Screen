@@ -1,0 +1,78 @@
+﻿@model TheDmScreen.Models.Episode
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="../../Scripts/Foundation/css/foundation.css">
+<script src="../../Scripts/Foundation/js/foundation.min.js"></script>
+<script src="../../Scripts/Foundation/js/foundation/foundation.reveal.js"></script>
+
+
+@{ var numberOfEntries = 0;}
+
+<body class="large-10 columns large-centered">
+<div class="row large-centered">
+    <h2>@Model.Name</h2>
+    @Model.Description
+    <hr/>
+</div>
+
+<div class="row">
+    <div class="large-text-center large-8 columns">
+        <h3>Encounters</h3>
+    </div>
+    <div class="large-text-center large-3 large-offset-1 columns">
+        <h3>Summary</h3>
+    </div>
+    <div class="panel large-8 columns">
+        @foreach (var encounter in Model.Encounters.OrderBy(p => p.Order))
+        {
+            if (numberOfEntries++ > 0)
+            {
+                <hr/>
+            }
+            <div class="row encounterSelect" id="@encounter.EncounterId">
+                <div class="large-centered large-10 columns">
+                    <div class="row">
+                        <h4>@encounter.Name</h4>
+                    </div>
+                    <div class="row">
+                        <div>@encounter.Description</div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="large-3 large-offset-1 columns">
+        <div class="row">
+        </div>
+        <div class="row">
+            @Model.Summary
+        </div>
+    </div>
+</div>
+
+<footer class="row">
+    <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+            <div class="large-5 columns">
+                <p>© Copyright Evan Kirsch 2015</p>
+            </div>
+            <div class="large-7 columns">
+                <ul class="inline-list right">
+                    <li><a href="#">Relevant Page here</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $(".encounterSelect").click(function () {
+            var url = '@Url.Action("Encounter", "Encounter", new { episodeId = "__id__" })';
+            window.location.href = url.replace('__id__', $(this).attr("id"));
+        });
+    });
+</script>

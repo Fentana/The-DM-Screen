@@ -16,6 +16,13 @@ namespace TheDmScreen.Controllers
             context = new DmScreenContext();
         }
 
+        public ActionResult Index(int episodeId)
+        {
+            var episode = context.Episodes.First(e => e.EpisodeId.Equals(episodeId));
+
+            return View(episode);
+        }
+
         public ActionResult Encounter(int id = -1)
         {
             if (!context.Encounters.Any())

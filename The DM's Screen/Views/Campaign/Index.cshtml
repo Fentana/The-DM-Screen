@@ -5,44 +5,60 @@
 <script src="../../Scripts/Foundation/js/foundation.min.js"></script>
 <script src="../../Scripts/Foundation/js/foundation/foundation.reveal.js"></script>
 
+@{ var numberOfEntries = 0;}
+
 @{
     ViewBag.Title = "Index";
 }
 
 <body class="large-10 columns large-centered">
-    <div class="row large-centered">
-        <h2>Index of Campaigns</h2>
-        <hr />
-    </div>
+<div class="row large-centered">
+    <h2>Index of Campaigns</h2>
+    <hr/>
+</div>
 
+<div class="panel large-8 columns large-centered">
     @foreach (var campaign in Model)
     {
-        <div class="row">
-            <div class="large-10 large-centered columns">
+        if (numberOfEntries++ > 0)
+        {
+            <hr/>
+        }
+        <div class="row campaignSelect" id="@campaign.CampaignId">
+            <div class="large-centered large-10 columns">
                 <div class="row">
                     <h3>@campaign.Name</h3>
                 </div>
                 <div class="row">
                     <div>@campaign.Description</div>
                 </div>
-                <hr />
             </div>
         </div>
     }
+</div>
 
-    <footer class="row">
-        <div class="large-12 columns">
-            <hr />
-            <div class="row">
-                <div class="large-5 columns">
-                    <p>© Copyright Evan Kirsch 2015</p>
-                </div>
-                <div class="large-7 columns">
-                    <ul class="inline-list right">
-                        <li><a href="#">Relevant Page here</a></li>
-                    </ul>
-                </div>
+<footer class="row">
+    <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+            <div class="large-5 columns">
+                <p>© Copyright Evan Kirsch 2015</p>
+            </div>
+            <div class="large-7 columns">
+                <ul class="inline-list right">
+                    <li><a href="#">Relevant Page here</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 </body>
+
+<script>
+    $(document).ready(function () {
+        $(".campaignSelect").click(function () {
+            var url = '@Url.Action("Index", "Episode", new { campaignId = "__id__" })';
+            window.location.href = url.replace('__id__', $(this).attr("id"));
+        });
+    });
+</script>

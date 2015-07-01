@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CampaignController.cs" />
+    <Compile Include="Controllers\EpisodeController.cs" />
     <Compile Include="Controllers\FeedEntryController.cs" />
     <Compile Include="Controllers\InitiativeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -222,6 +223,8 @@
   <ItemGroup>
     <Content Include="Views\Campaign\Index.cshtml" />
     <Content Include="Views\Initiative\Edit.cshtml" />
+    <Content Include="Views\Encounter\Index.cshtml" />
+    <Content Include="Views\Episode\Index.cshtml" />
     <None Include="Views\Partials\EditEntry.cshtml" />
   </ItemGroup>
   <PropertyGroup>
