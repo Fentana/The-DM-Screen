@@ -128,6 +128,7 @@
     <Compile Include="Models\Database\DmScreenContext.cs" />
     <Compile Include="Models\Database\Encounter.cs" />
     <Compile Include="Models\Database\Episode.cs" />
+    <Compile Include="Models\Views\AutocompleteHelper.cs" />
     <Compile Include="Models\Views\EditEntryViewModel.cs" />
     <Compile Include="Models\Database\EncounterFeedEntry.cs" />
     <Compile Include="Models\Database\Initiative.cs" />
@@ -225,6 +226,7 @@
     <Content Include="Views\Initiative\Edit.cshtml" />
     <Content Include="Views\Encounter\Index.cshtml" />
     <Content Include="Views\Episode\Index.cshtml" />
+    <Content Include="Views\Initiative\Add.cshtml" />
     <None Include="Views\Partials\EditEntry.cshtml" />
   </ItemGroup>
   <PropertyGroup>

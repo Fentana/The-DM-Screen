@@ -12,6 +12,7 @@ namespace TheDmScreen.Models
         public string Name { get; set; }
         public string Portrait { get; set; }
         public bool IsPlayer { get; set; }
+        public bool IsUnique { get; set; }
         public virtual ICollection<Encounter> Encounters { get; set; }
 
         // For future reference

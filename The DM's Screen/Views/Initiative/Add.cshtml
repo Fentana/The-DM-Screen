@@ -1,0 +1,84 @@
+﻿@model TheDmScreen.Models.Encounter
+
+<h2>Add To Initiative</h2>
+
+<form>
+    <div class="large-6 columns">
+        <div class="row">
+            <h4>Player Name</h4>
+        </div>
+        <div class="row">
+            <input id="playerNameCompleter" type="text"/>
+        </div>
+    </div>
+    <div>
+        <div class="large-3 columns">
+            <div class="row">
+                <h4>Initiative Roll</h4>
+            </div>
+            <div class="row">
+                <input id="initiativeRoll" type="number" value="0"/>
+            </div>
+        </div>
+    </div>
+    <div class="large-2 large-offset-1 columns">
+        <div class="row">
+            <div><h4>Options</h4></div>
+        </div>
+        <div class="row">
+            <div id="addInitiativeButton" class="button">Add</div>
+        </div>
+    </div>
+</form>
+
+<input type="hidden" id="selectedCharacter" value="0" />
+
+<script>
+    $(document).foundation('dropdown', 'reflow');
+    $(document).ready(function () {
+        $("#playerNameCompleter").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '@Url.Action("AutoComplete", "Initiative")',
+                    data: { encounterId: $("#encounterId").val(), term: request.term },
+                    success: function (data) {
+                        response($.map(data, function(item) {
+                            return { label: item.Name, value: item.CharacterId };
+                        }));
+                    }
+                });
+            },
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#playerNameCompleter").val(ui.item.label);
+                $("#selectedCharacter").val(ui.item.value);
+            },
+        });
+
+        $("#addInitiativeButton").click(function () {
+            var commitData = {
+                encounterId: $("#encounterId").val(),
+                characterId: $("#selectedCharacter").val(),
+                roll: $("#initiativeRoll").val()
+            };
+
+            $.ajax({
+                url: "@Url.Action("Add","Initiative")",
+                dataType: "json",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(commitData),
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (data) {
+                var url = '@Url.Action("Encounter", "Encounter", new { id = "__id__" })';
+                window.location.href = url.replace('__id__', $("#encounterId").val());
+            },
+            error: function (xhr) {
+                alert("Oops, something got screwed up here");
+            }
+        });
+    });
+    });
+</script>
