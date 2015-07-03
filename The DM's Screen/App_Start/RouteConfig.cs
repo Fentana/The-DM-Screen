@@ -16,7 +16,7 @@ namespace TheDmScreen
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Campaign", action = "Index", id = -1}
+                defaults: new { controller = "Campaign", action = "Index", id = 1}
             );
         }
     }
