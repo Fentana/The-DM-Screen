@@ -15,6 +15,13 @@
 
     <div class="row">
         <div class="large-7 columns">
+            @foreach (var section in Model.WikiSections)
+            {
+                <div class="row">
+                    <h3>@section.Title</h3>@section.ContentBody
+                    <hr />
+                </div>
+             }
             <div class="row">
                 <h3>Summary</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla.
                 <hr/>
@@ -27,7 +34,7 @@
             <div class="row">
                 <h3>Significant Event</h3>
                 Nulla lobortis eu arcu ac aliquam. Nulla ac mauris quis ex viverra vestibulum vitae id nunc. Nullam nunc velit, mollis id convallis at, hendrerit ut augue. Vestibulum vehicula quis quam ac vestibulum. Duis ullamcorper ipsum non diam laoreet sollicitudin at in eros. Sed ac sapien ornare, faucibus leo et, aliquam ante. Ut luctus ligula eget erat accumsan, a placerat diam finibus. Fusce blandit a enim a maximus. Sed venenatis diam ac posuere tincidunt. Praesent neque sapien, consequat eget purus at, ullamcorper condimentum arcu. Donec fringilla eros ut ipsum luctus, ut fermentum ligula molestie. Maecenas et sem posuere, viverra ante in, consectetur ipsum. Fusce tincidunt tincidunt augue ut laoreet. Mauris ullamcorper, purus et laoreet blandit, leo odio efficitur lectus, ac fermentum nisi libero nec magna. Ut id mi a orci luctus vestibulum quis et est. Nunc eget ex sed est rhoncus lacinia.
-                <hr />
+                <hr/>
             </div>
         </div>
         <div class="large-4 columns large-offset-1 panel">

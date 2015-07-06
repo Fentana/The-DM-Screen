@@ -220,16 +220,16 @@
     <Content Include="Scripts\Foundation\img\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\EncounterFeed.cshtml" />
+    <Content Include="Views\Encounter\Partials\EncounterFeed.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\SidebarTurnOrder.cshtml" />
+    <Content Include="Views\Encounter\Partials\SidebarTurnOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\DmDrawer.cshtml" />
+    <Content Include="Views\Encounter\Partials\DmDrawer.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\LocalMap.cshtml" />
+    <Content Include="Views\Encounter\Partials\LocalMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Campaign\Index.cshtml" />
@@ -240,7 +240,7 @@
     <Content Include="Views\Encounter\Add.cshtml" />
     <Content Include="Views\Episode\Add.cshtml" />
     <Content Include="Views\Character\Details.cshtml" />
-    <None Include="Views\Partials\EditEntry.cshtml" />
+    <None Include="Views\Encounter\Partials\EditEntry.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
