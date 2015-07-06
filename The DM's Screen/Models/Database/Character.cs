@@ -17,9 +17,10 @@ namespace TheDmScreen.Models
         public virtual ICollection<Inventory> Inventory { get; set; }
 
         // Summaries
-        public string Summary { get; set; }
         public int Age { get; set; }
         public string Status { get; set; } // Deceased?
+        public virtual ICollection<string> ClassesAndLevels { get; set; } 
+        public virtual ICollection<WikiSection> WikiSections { get; set; }
 
         // Stats
         public int? Strength { get; set; }

@@ -20,6 +20,7 @@ namespace TheDmScreen.Models
         public DbSet<Character> Characters { get; set; }
         public DbSet<Encounter> Encounters { get; set; }
         public DbSet<Episode> Episodes { get; set; }
-        public DbSet<Inventory> Items { get; set; } 
+        public DbSet<Inventory> Items { get; set; }
+        public DbSet<WikiSection> WikiSections { get; set; }
     }
 }
