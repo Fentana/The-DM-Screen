@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TheDmScreen.Models;
+using TheDmScreen.Models.Database;
 
 namespace TheDmScreen.Models
 {
@@ -13,9 +14,14 @@ namespace TheDmScreen.Models
         public string Portrait { get; set; }
         public bool IsPlayer { get; set; }
         public bool IsUnique { get; set; }
-        public virtual ICollection<Encounter> Encounters { get; set; }
+        public virtual ICollection<Inventory> Inventory { get; set; }
 
-        // For future reference
+        // Summaries
+        public string Summary { get; set; }
+        public int Age { get; set; }
+        public string Status { get; set; } // Deceased?
+
+        // Stats
         public int? Strength { get; set; }
         public int? Dexterity { get; set; }
         public int? Constitution { get; set; }
@@ -25,7 +31,7 @@ namespace TheDmScreen.Models
 
         public Character()
         {
-            Encounters = new List<Encounter>();
+            Inventory = new List<Inventory>();
         }
     }
 }

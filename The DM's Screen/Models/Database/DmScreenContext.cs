@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using TheDmScreen.Models;
+using TheDmScreen.Models.Database;
 
 namespace TheDmScreen.Models
 {
@@ -19,5 +20,6 @@ namespace TheDmScreen.Models
         public DbSet<Character> Characters { get; set; }
         public DbSet<Encounter> Encounters { get; set; }
         public DbSet<Episode> Episodes { get; set; }
+        public DbSet<Inventory> Items { get; set; } 
     }
 }

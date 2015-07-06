@@ -129,6 +129,7 @@
     <Compile Include="Models\Database\DmScreenContext.cs" />
     <Compile Include="Models\Database\Encounter.cs" />
     <Compile Include="Models\Database\Episode.cs" />
+    <Compile Include="Models\Database\Inventory.cs" />
     <Compile Include="Models\Views\EditEntryViewModel.cs" />
     <Compile Include="Models\Database\EncounterFeedEntry.cs" />
     <Compile Include="Models\Database\Initiative.cs" />
