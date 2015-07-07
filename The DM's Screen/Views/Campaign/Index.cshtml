@@ -12,46 +12,50 @@
 }
 
 <body class="large-10 columns large-centered">
-<div class="row large-centered">
-    <h2>Index of Campaigns</h2>
-    <hr/>
-</div>
-
-<div class="panel large-8 columns large-centered">
-    @foreach (var campaign in Model)
-    {
-        if (numberOfEntries++ > 0)
-        {
-            <hr/>
-        }
-        <div class="row campaignSelect" id="@campaign.CampaignId">
-            <div class="large-centered large-10 columns">
-                <div class="row">
-                    <h3>@campaign.Name</h3>
-                </div>
-                <div class="row">
-                    <div>@campaign.Description</div>
-                </div>
-            </div>
-        </div>
-    }
-</div>
-
-<footer class="row">
-    <div class="large-12 columns">
-        <hr/>
-        <div class="row">
-            <div class="large-5 columns">
-                <p>© Copyright Evan Kirsch 2015</p>
-            </div>
-            <div class="large-7 columns">
-                <ul class="inline-list right">
-                    <li><a href="#">Relevant Page here</a></li>
-                </ul>
-            </div>
-        </div>
+    <!--Title Bar-->
+    <div class="row large-centered">
+        <h2>The DM's Screen</h2>
+        <h4>Index of Campaigns</h4>
+        <hr />
     </div>
-</footer>
+
+    <!--Campaign List-->
+    <div class="panel large-8 columns large-centered">
+        @foreach (var campaign in Model)
+        {
+            if (numberOfEntries++ > 0)
+            {
+                <hr />
+            }
+            <div class="row campaignSelect" id="@campaign.Id">
+                <div class="large-centered large-10 columns">
+                    <div class="row">
+                        <h3>@campaign.Name</h3>
+                    </div>
+                    <div class="row">
+                        <div>@campaign.Description</div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!--Footer-->
+    <footer class="row">
+        <div class="large-12 columns">
+            <hr />
+            <div class="row">
+                <div class="large-5 columns">
+                    <p>© Copyright Evan Kirsch 2015</p>
+                </div>
+                <div class="large-7 columns">
+                    <ul class="inline-list right">
+                        <li><a href="https://github.com/etkirsch/The-DM-Screen">See the source at Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 <script>

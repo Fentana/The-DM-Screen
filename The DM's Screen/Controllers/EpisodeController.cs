@@ -18,7 +18,7 @@ namespace TheDmScreen.Controllers
 
         public ActionResult Index(int campaignId)
         {
-            var campaign = context.Campaigns.First(c => c.CampaignId.Equals(campaignId));
+            var campaign = context.Campaigns.First(c => c.Id.Equals(campaignId));
 
             return View(campaign);
         }
@@ -26,7 +26,7 @@ namespace TheDmScreen.Controllers
         [HttpGet]
         public PartialViewResult Add(int campaignId)
         {
-            var campaign = context.Campaigns.First(c => c.CampaignId.Equals(campaignId));
+            var campaign = context.Campaigns.First(c => c.Id.Equals(campaignId));
 
             return PartialView(campaign);
         }
@@ -34,7 +34,7 @@ namespace TheDmScreen.Controllers
         [HttpPut]
         public JsonResult Add(int campaignId, string name, string description, string summary)
         {
-            var campaign = context.Campaigns.First(c => c.CampaignId.Equals(campaignId));
+            var campaign = context.Campaigns.First(c => c.Id.Equals(campaignId));
 
             campaign.Episodes.Add(new Episode()
             {

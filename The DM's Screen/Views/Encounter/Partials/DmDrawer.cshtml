@@ -1,8 +1,10 @@
 ﻿@model TheDmScreen.Models.Encounter
 
 <form class="panel">
+
     @if (true)
     {
+        <!--Draw the DmDrawer If it's the user is the DM-->
         <div class="row">
             <h3 class="actorName">@Model.Initiatives.OrderBy(m => m.TurnOrder).First().Character.Name's Turn</h3>
             <br />
@@ -16,13 +18,12 @@
         <div class="row">
             <ul class="button-group">
                 <li id="EntryCreate" class="button large-offset-10">Commit</li>
-                <!--<li id="EntrySkip" class="button">Skip</li>-->
-                <!--<li id="EntryHold" class="button">Hold</li>-->
             </ul>
         </div>
     }
     else
     {
+        <!--Draw the acting player's name-->
         <div class="row">
             <div class="large-8 columns">
                 <h3 class="actorName">@Model.Initiatives.OrderBy(m => m.TurnOrder).First().Character.Name's Turn</h3>
@@ -67,36 +68,6 @@
                     alert("Oops, something got screwed up here");
                 }
             });
-        });
-
-        // Character passes his turn
-        $("#EntrySkip").click(function () {
-            var commitData = { encounterId: $("#encounterId").val() };
-
-            $.ajax({
-                url: "@Url.Action("Skip","FeedEntry")",
-                dataType: "json",
-                type: "PUT",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(commitData),
-                async: true,
-                processData: false,
-                cache: false,
-                success: function (data) {
-                    var url = '@Url.Action("Encounter", "Encounter", new { id = "__id__" })';
-                    window.location.href = url.replace('/__id__', '?encounterId=' + $("#encounterId").val());
-                },
-                error: function (xhr) {
-                    alert("Oops, something got screwed up here");
-                }
-            });
-        });
-
-        // Character holds his turn
-        $("#EntryHold").click(function () {
-            var data = { entryId: $(this).attr("value") };
-
-            $("#myModal").foundation("reveal", "open");
         });
     });
 </script>

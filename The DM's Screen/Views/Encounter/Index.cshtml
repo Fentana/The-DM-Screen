@@ -9,12 +9,15 @@
 @{ var numberOfEntries = 0;}
 
 <body class="large-10 columns large-centered">
-<div class="row large-centered">
-    <h2>@Model.Name</h2>
-    @Model.Description
-    <hr/>
-</div>
 
+    <!--Title Bar-->
+    <div class="row large-centered">
+        <h2>@Model.Name</h2>
+        @Model.Description
+        <hr />
+    </div>
+
+    <!--Modal Dialog-->
     <div class="reveal-modal" id="myModal" data-reveal>
         <div id="addModal" class="large-8 columns">
             <h3>Apologies!</h3>
@@ -23,63 +26,72 @@
         <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
 
-<div class="row">
-    <div class="large-text-center large-8 columns">
-        <h3>Encounters</h3>
-    </div>
-    <div class="large-text-center large-3 large-offset-1 columns">
-        <h3>Summary</h3>
-    </div>
-    <div class="panel large-8 columns">
-        @foreach (var encounter in Model.Encounters.OrderBy(p => p.Order))
-        {
-            if (numberOfEntries++ > 0)
+    <div class="row">
+        <!--Headers-->
+        <div class="large-text-center large-8 columns">
+            <h3>Encounters</h3>
+        </div>
+        <div class="large-text-center large-3 large-offset-1 columns">
+            <h3>Summary</h3>
+        </div>
+
+        <!--Encounters List-->
+        <div class="panel large-8 columns">
+            @foreach (var encounter in Model.Encounters.OrderBy(p => p.Order))
             {
-                <hr/>
-            }
-            <div class="row encounterSelect" id="@encounter.EncounterId">
-                <div class="large-centered large-10 columns">
-                    <div class="row">
-                        <h4>@encounter.Name</h4>
-                    </div>
-                    <div class="row">
-                        <div>@encounter.Description</div>
+                if (numberOfEntries++ > 0)
+                {
+                    <hr />
+                }
+                <div class="row encounterSelect" id="@encounter.Id">
+                    <div class="large-centered large-10 columns">
+                        <div class="row">
+                            <h4>@encounter.Name</h4>
+                        </div>
+                        <div class="row">
+                            <div>@encounter.Description</div>
+                        </div>
                     </div>
                 </div>
+            }
+        </div>
+
+        <!--Summary-->
+        <div class="large-3 large-offset-1 columns">
+            <div class="row">
             </div>
-        }
+            <div class="row">
+                @Model.Summary
+            </div>
+        </div>
     </div>
 
-    <div class="large-3 large-offset-1 columns">
-        <div class="row">
-        </div>
-        <div class="row">
-            @Model.Summary
+    <!-- Add new Encounter button-->
+    <div class="row">
+        <div class="large-6-columns">
+            <div id="addEncounter" class="large-4 large-offset-2 columns button">Add</div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="large-6-columns">
-            <div id="addEncounter"class="large-4 large-offset-2 columns button">Add</div>
-    </div>
-</div>
-    <input type="hidden" id="episodeId" value="@Model.EpisodeId" />
 
-<footer class="row">
-    <div class="large-12 columns">
-        <hr/>
-        <div class="row">
-            <div class="large-5 columns">
-                <p>© Copyright Evan Kirsch 2015</p>
-            </div>
-            <div class="large-7 columns">
-                <ul class="inline-list right">
-                    <li><a href="#">Relevant Page here</a></li>
-                </ul>
+    <!--Hiddens-->
+    <input type="hidden" id="episodeId" value="@Model.Id" />
+
+    <!--Footer-->
+    <footer class="row">
+        <div class="large-12 columns">
+            <hr />
+            <div class="row">
+                <div class="large-5 columns">
+                    <p>© Copyright Evan Kirsch 2015</p>
+                </div>
+                <div class="large-7 columns">
+                    <ul class="inline-list right">
+                        <li><a href="https://github.com/etkirsch/The-DM-Screen">See the source at Github</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </body>
 
 <script>

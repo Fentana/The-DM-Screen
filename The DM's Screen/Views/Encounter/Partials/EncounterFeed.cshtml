@@ -1,11 +1,15 @@
 ﻿@model TheDmScreen.Models.Encounter
 
-@foreach (var feedEntry in Model.FeedEntries.OrderByDescending(f => f.EncounterFeedEntryId))
+@foreach (var feedEntry in Model.FeedEntries.OrderByDescending(f => f.Id))
 {
     <div class="row">
+
+        <!--Portrait-->
         <div class="large-2 columns">
-            <img src="@feedEntry.ActingCharacter.Portrait"/>
+            <img src="@feedEntry.ActingCharacter.Portrait" />
         </div>
+
+        <!--Name and Action Description-->
         <div class="large-10 columns">
             <div class="row">
                 <h4>@feedEntry.ActingCharacter.Name</h4>
@@ -15,7 +19,7 @@
                     @feedEntry.Description
                 </div>
                 <div class="medium-2 columns">
-                    <div class="editFeed row button" value="@feedEntry.EncounterFeedEntryId">Edit</div>
+                    <div class="editFeed row button" value="@feedEntry.Id">Edit</div>
                 </div>
             </div>
         </div>
@@ -28,10 +32,10 @@
         $(".editFeed").click(function () {
             var data = { entryId: $(this).attr("value") };
 
-            $("#myModal").foundation("reveal", "open",{
+            $("#myModal").foundation("reveal", "open", {
                 url: '@Url.Action("Edit","FeedEntry")',
                 data: data,
-                error: function() {
+                error: function () {
                     alert('failed loading modal');
                 }
             });

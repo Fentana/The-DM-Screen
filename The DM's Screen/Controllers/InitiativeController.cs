@@ -19,7 +19,7 @@ namespace TheDmScreen.Controllers
         [HttpGet]
         public PartialViewResult Edit(int encounterId)
         {
-            var initiatives = context.Encounters.First(e => e.EncounterId.Equals(encounterId)).Initiatives.ToList();
+            var initiatives = context.Encounters.First(e => e.Id.Equals(encounterId)).Initiatives.ToList();
 
             return PartialView(initiatives);
         }
@@ -28,7 +28,7 @@ namespace TheDmScreen.Controllers
         public JsonResult Autocomplete(int encounterId, string term)
         {
             var uniquePlayers = context.Campaigns.First(
-                e => e.Episodes.Any(f => f.Encounters.Any(g => g.EncounterId.Equals(encounterId)))).Characters;
+                e => e.Episodes.Any(f => f.Encounters.Any(g => g.Id.Equals(encounterId)))).Characters;
             var nonuniquePlayers = context.Characters.Where(c => !c.IsUnique);
 
             var results = uniquePlayers.Concat(nonuniquePlayers);
@@ -41,7 +41,7 @@ namespace TheDmScreen.Controllers
         [HttpGet]
         public PartialViewResult Add(int encounterId)
         {
-            var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
+            var encounter = context.Encounters.First(e => e.Id.Equals(encounterId));
 
             return PartialView(encounter);
         }
@@ -49,8 +49,8 @@ namespace TheDmScreen.Controllers
         [HttpPost]
         public JsonResult Add(int encounterId, int characterId, int roll)
         {
-            var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
-            var character = context.Characters.First(e => e.CharacterId.Equals(characterId));
+            var encounter = context.Encounters.First(e => e.Id.Equals(encounterId));
+            var character = context.Characters.First(e => e.Id.Equals(characterId));
 
             encounter.Initiatives.Add(new Initiative()
             {
@@ -66,8 +66,8 @@ namespace TheDmScreen.Controllers
         [HttpPut]
         public JsonResult Delete(int encounterId, int characterId)
         {
-            var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
-            var initiative = encounter.Initiatives.First(e => e.Character.CharacterId.Equals(characterId));
+            var encounter = context.Encounters.First(e => e.Id.Equals(encounterId));
+            var initiative = encounter.Initiatives.First(e => e.Character.Id.Equals(characterId));
 
             encounter.Initiatives.Remove(initiative);
 
@@ -90,11 +90,11 @@ namespace TheDmScreen.Controllers
         public JsonResult Update(int encounterId, List<int> newOrder)
         {
             var newInitiatives = new List<Initiative>();
-            var encounter = context.Encounters.First(e => e.EncounterId.Equals(encounterId));
+            var encounter = context.Encounters.First(e => e.Id.Equals(encounterId));
 
             var newInit = from i in newOrder
                 join initiative in encounter.Initiatives
-                    on i equals initiative.Character.CharacterId
+                    on i equals initiative.Character.Id
                 select initiative;
 
             encounter.Initiatives = newInit.ToList();
@@ -107,7 +107,7 @@ namespace TheDmScreen.Controllers
         [HttpPost]
         public JsonResult GetName(int characterId)
         {
-            return Json(context.Characters.First(c => c.CharacterId.Equals(characterId)).Name);
+            return Json(context.Characters.First(c => c.Id.Equals(characterId)).Name);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace TheDmScreen.Models
 {
     public class Character
     {
-        public int CharacterId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Portrait { get; set; }
         public bool IsPlayer { get; set; }

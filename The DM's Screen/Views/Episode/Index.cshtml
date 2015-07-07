@@ -5,15 +5,18 @@
 <script src="../../Scripts/Foundation/js/foundation.min.js"></script>
 <script src="../../Scripts/Foundation/js/foundation/foundation.reveal.js"></script>
 
-@{ var numberOfEntries = 0;}
+@{ var numberOfCampaigns = 0;}
 
 <body class="large-10 columns large-centered">
-<div class="row large-centered">
-    <h2>@Model.Name</h2>
-    <p>@Model.Description</p>
-    <hr/>
-</div>
 
+    <!--Title Bar-->
+    <div class="row large-centered">
+        <h2>@Model.Name</h2>
+        <p>@Model.Description</p>
+        <hr />
+    </div>
+
+    <!--Modal Dialog-->
     <div class="reveal-modal" id="myModal" data-reveal>
         <div id="addModal" class="large-8 columns">
             <h3>Apologies!</h3>
@@ -22,69 +25,78 @@
         <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
 
-<div class="row">
-    <div class="large-text-center large-8 columns">
-        <h3>Episodes</h3>
-    </div>
-    <div class="large-text-center large-3 large-offset-1 columns">
-        <h3>Dossier</h3>
-    </div>
-    <div class="panel large-8 columns">
-        @foreach (var episode in Model.Episodes.OrderBy(p => p.Order))
-        {
-            if (numberOfEntries++ > 0)
-            {
-                <hr/>
-            }
-            <div class="row episodeSelect" id="@episode.EpisodeId">
-                <div class="large-centered large-10 columns">
-                    <div class="row">
-                        <h4>@episode.Name</h4>
-                    </div>
-                    <div class="row">
-                        <div>@episode.Description</div>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-
-    <div class="large-3 large-offset-1 columns hide-for-small">
-        @foreach (var character in Model.Characters)
-        {
-            <div class="row large-text-center">
-                <div class="large-centered large-10 columns">
-                    <div class="row">
-                        @character.Name
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-</div>
-<div class="row">
-    <div class="large-6-columns">
-        <div id="addEpisode" class="large-4 large-offset-2 columns button">Add</div>
-    </div>
-</div>
-
-<input type="hidden" id="campaignId" value="@Model.CampaignId" />
-
-<footer class="row">
-    <div class="large-12 columns">
-        <hr/>
-        <div class="row">
-            <div class="large-5 columns">
-                <p>© Copyright Evan Kirsch 2015</p>
-            </div>
-            <div class="large-7 columns">
-                <ul class="inline-list right">
-                    <li><a href="#">Relevant Page here</a></li>
-                </ul>
-            </div>
+    <!--Headers-->
+    <div class="row">
+        <div class="large-text-center large-9 columns">
+            <h3>Episodes</h3>
+        </div>
+        <div class="large-text-center large-3 columns">
+            <h3>Dossier</h3>
         </div>
     </div>
-</footer>
+    <div class="row">
+
+        <!--Episode Index-->
+        <div class="panel large-9 columns">
+            @foreach (var episode in Model.Episodes.OrderBy(p => p.Order))
+            {
+                // We don't want one of these spacers if there's only one campaign in the index
+                if (numberOfCampaigns++ > 0)
+                {
+                    <hr />
+                }
+                <div class="row episodeSelect" id="@episode.Id">
+                    <div class="large-centered large-10 columns">
+                        <div class="row">
+                            <h4>@episode.Name</h4>
+                        </div>
+                        <div class="row">
+                            <div>@episode.Description</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!--Dossier-->
+        <div class="large-3 columns hide-for-small">
+            @foreach (var character in Model.Characters.Where(m => m.IsUnique))
+            {
+                <div class="row large-text-center">
+                    <div class="large-centered large-10 columns">
+                        <div class="row">
+                            <div class="characterSelect" id="@character.Id">@character.Name</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!--Add Episode Button-->
+    <div class="row">
+        <div id="addEpisode" class="large-3 large-offset-3 columns button">Add</div>
+    </div>
+
+    <!--Hiddens-->
+    <input type="hidden" id="campaignId" value="@Model.Id" />
+
+    <!--footer-->
+    <footer class="row">
+        <div class="large-12 columns">
+            <hr />
+            <div class="row">
+                <div class="large-5 columns">
+                    <p>© Copyright Evan Kirsch 2015</p>
+                </div>
+                <div class="large-7 columns">
+                    <ul class="inline-list right">
+                        <li><a href="https://github.com/etkirsch/The-DM-Screen">See the source at Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 <script>
@@ -106,6 +118,11 @@
                     alert('failed loading modal');
                 }
             });
+        });
+
+        $(".characterSelect").click(function () {
+            var url = '@Url.Action("Details", "Character", new { episodeId = "__id__" })';
+            window.location.href = url.replace('?episodeId=__id__', '/' + $(this).attr("id"));
         });
 
         $(".episodeSelect").click(function () {

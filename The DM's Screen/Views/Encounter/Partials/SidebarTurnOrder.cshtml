@@ -8,16 +8,16 @@
                 <tr>
                     <th>Character Name</th>
                     <th class="large-text-center">Roll</th>
-                    <th></th>
+                    <th><!--"Remove Button" Column--></th>
                 </tr>
             </thead>
             <tbody class="row" id="sortable">
                 @foreach (var initiative in Model.Initiatives.OrderBy(i => i.TurnOrder))
                 {
-                    <tr id="@initiative.Character.CharacterId">
+                    <tr id="@initiative.Character.Id">
                         <td>@initiative.Character.Name</td>
                         <td class="large-text-center">@initiative.Roll</td>
-                        <td><a href="#" class="removeInitiative" id="@initiative.Character.CharacterId" aria-label="Close">&#215;</a></td>
+                        <td><a href="#" class="removeInitiative" id="@initiative.Character.Id" aria-label="Close">&#215;</a></td>
                     </tr>
                 }
             </tbody>

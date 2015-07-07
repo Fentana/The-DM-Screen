@@ -5,93 +5,99 @@
 <script src="../../Scripts/Foundation/js/foundation.min.js"></script>
 <script src="../../Scripts/Foundation/js/foundation/foundation.reveal.js"></script>
 
-<!--MOCKUP... Needs to be improved with Razor once I get more of this figured out.-->
-
 <body class="large-10 columns large-centered">
-<div class="row large-centered">
-    <h2>@Model.Name</h2>
-    <hr/>
-</div>
 
-<div class="row">
-    <div class="large-7 columns">
-        @foreach (var wikiSection in Model.WikiSections)
-        {
-            <div class="row">
-                <h3>@wikiSection.Title</h3>@wikiSection.ContentBody
-                <hr/>
-            </div>
-        }
-        <div class="row">
-            <h3>Summary</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla.
-            <hr/>
-        </div>
-        <div class="row">
-            <h3>Before the Events of Campaign</h3>
-            Etiam eget massa sed libero rhoncus iaculis. Etiam tristique mi at pharetra rutrum. Quisque non tempor nisl. Ut vitae turpis porta, auctor odio id, porttitor eros. Donec nulla dui, tincidunt nec libero a, rutrum eleifend nisl. Aliquam euismod lorem nisl, id vehicula ante egestas non. Aliquam ipsum sapien, rhoncus in enim ac, viverra dignissim felis. Sed cursus justo ut justo rhoncus consectetur. Donec ac sem ut leo commodo tempor. Nullam fringilla felis ac turpis tincidunt, ac lobortis ante scelerisque. Etiam elementum bibendum tellus, ut viverra nisi rhoncus et. Fusce egestas dapibus elit quis tempus. Duis ex diam, fermentum in enim a, ultrices viverra eros. Suspendisse pharetra iaculis neque nec lacinia.
-            <hr/>
-        </div>
-        <div class="row">
-            <h3>Significant Event</h3>
-            Nulla lobortis eu arcu ac aliquam. Nulla ac mauris quis ex viverra vestibulum vitae id nunc. Nullam nunc velit, mollis id convallis at, hendrerit ut augue. Vestibulum vehicula quis quam ac vestibulum. Duis ullamcorper ipsum non diam laoreet sollicitudin at in eros. Sed ac sapien ornare, faucibus leo et, aliquam ante. Ut luctus ligula eget erat accumsan, a placerat diam finibus. Fusce blandit a enim a maximus. Sed venenatis diam ac posuere tincidunt. Praesent neque sapien, consequat eget purus at, ullamcorper condimentum arcu. Donec fringilla eros ut ipsum luctus, ut fermentum ligula molestie. Maecenas et sem posuere, viverra ante in, consectetur ipsum. Fusce tincidunt tincidunt augue ut laoreet. Mauris ullamcorper, purus et laoreet blandit, leo odio efficitur lectus, ac fermentum nisi libero nec magna. Ut id mi a orci luctus vestibulum quis et est. Nunc eget ex sed est rhoncus lacinia.
-            <hr/>
-        </div>
+    <!--Title bar-->
+    <div class="row large-centered">
+        <h2>@Model.Name</h2>
+        <hr />
     </div>
-    <div class="large-4 columns large-offset-1 panel">
-        <div class="row">
-            <div class="large-10 large-offset-1 columns">
-                <img src="@Model.Portrait"/>
-            </div>
+
+    <div class="row">
+
+        <!--Wiki Entries-->
+        <div class="large-7 columns">
+            @foreach (var wikiSection in Model.WikiSections)
+            {
+                <div class="row">
+                    <h3>@wikiSection.Title</h3>@wikiSection.ContentBody
+                    <hr />
+                </div>
+            }
         </div>
-        <div class="row">
-            <div class="large-4 large-offset-1 columns">
-                <div class="row">
-                    <b>Status:</b>
-                </div>
-                <div class="row">
-                    <b>Allegiance:</b>
-                </div>
-                @if (Model.IsPlayer)
-                {
+
+        <!--Side bar-->
+        <div class="large-4 columns large-offset-1 panel">
+            <div class="row">
+                <img class="large-10 large-offset-1 columns" src="@Model.Portrait" />
+            </div>
+            <div class="row">
+
+                <!--Labels for Sidebar-->
+                <div class="large-4 large-offset-1 columns">
                     <div class="row">
-                        <b>Class:</b>
-                        @for (var i = 0; i < Model.ClassesAndLevels.Count; ++i)
-                        {
-                            <br/>
-                        }
+                        <b>Status:</b>
                     </div>
-                }
-                <div class="row">
-                    <b>Age:</b>
+                    <div class="row">
+                        <b>Allegiance:</b>
+                    </div>
+                    @if (Model.IsPlayer)
+                    {
+                        <div class="row">
+                            <b>Class:</b>
+                            @for (var i = 0; i < Model.ClassesAndLevels.Count; ++i)
+                            {
+                                <br />
+                            }
+                        </div>
+                    }
+                    else if (User.Identity.Name.Equals("Dungeon Master"))
+                    {
+                        <div class="row">
+                            <b>Challenge:</b>
+                        </div>
+                    }
+                    <div class="row">
+                        <b>Age:</b>
+                    </div>
+                    <div class="row">
+                        <b>Wealth:</b>
+                    </div>
                 </div>
-                <div class="row">
-                    <b>Wealth:</b>
-                </div>
-            </div>
-            <div class="large-6 columns">
-                <div class="row">
-                    @Model.Status
-                </div>
-            <div class="row">
-                @Model.Allegiance
-            </div>
-                @if (Model.IsPlayer)
-                {
-                    foreach (var classLvl in Model.ClassesAndLevels)
-                     {
-                         <div class="row">
-                             @classLvl.Class (@classLvl.Level)
-                         </div>
-                     }
-                }
-                <div class="row">
-                    40
+
+                <!--Values for Sidebar-->
+                <div class="large-6 columns">
+                    <div class="row">
+                        @Model.Status
+                    </div>
+                    <div class="row">
+                        @Model.Allegiance
+                    </div>
+                    @if (Model.IsPlayer)
+                    {
+                        foreach (var classLvl in Model.ClassesAndLevels)
+                        {
+                            <div class="row">
+                                @classLvl.Class (@classLvl.Level)
+                            </div>
+                        }
+                    }
+                    else if (User.Identity.Name.Equals("Dungeon Master"))
+                    {
+                        <div class="row">
+                            @Model.ClassesAndLevels.First().Level
+                        </div>
+                    }
+                    <div class="row">
+                        40
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </body>
+
+<!--Footer-->
 <footer class="row">
     <div class="large-12 columns">
         <hr />
@@ -101,7 +107,7 @@
             </div>
             <div class="large-7 columns">
                 <ul class="inline-list right">
-                    <li><a href="#">Relevant Page here</a></li>
+                    <li><a href="https://github.com/etkirsch/The-DM-Screen">See the source at Github</a></li>
                 </ul>
             </div>
         </div>

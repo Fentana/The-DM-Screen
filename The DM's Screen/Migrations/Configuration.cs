@@ -33,7 +33,19 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Master", Level = 20 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var ellywick = new Character
@@ -50,12 +62,24 @@ namespace TheDmScreen.Migrations
                     new ClassAndLevel() { Class = "Rogue", Level = 6 },
                     new ClassAndLevel() { Class = "Wizard", Level = 3 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var hellbaby = new Character
             {
-                Name = "Hellbaby", 
+                Name = "Jaq Hellbaby", 
                 Portrait = "../../Content/hellbaby.gif",
                 IsPlayer = true,
                 IsUnique = true,
@@ -66,12 +90,24 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Warlock", Level = 8 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
             
             var steelbeard = new Character
             {
-                Name = "Steelbeard", 
+                Name = "Adun Steelbeard", 
                 Portrait = "../../Content/steelbeard.jpg",
                 IsPlayer = true,
                 IsUnique = true,
@@ -82,12 +118,24 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Cleric", Level = 9 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var randy = new Character
             {
-                Name = "Randy", 
+                Name = "Randy Magnosh", 
                 Portrait = "../../Content/randy.jpg",
                 IsPlayer = true,
                 IsUnique = true,
@@ -98,12 +146,24 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Barbarian", Level = 5 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var varo = new Character
             {
-                Name = "Varo", 
+                Name = "Varo Latrellis", 
                 Portrait = "../../Content/varo.jpg",
                 IsPlayer = false,
                 IsUnique = true,
@@ -114,7 +174,19 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Artificer", Level = 6 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var jeff = new Character
@@ -130,7 +202,24 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="???", Level = 8 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Acquisitions Incorporated",
+                        ContentBody = "Before he was hired by Sir Isteval to manage the Church of Tim's establishment, Jeff was the manager of the Waterdeep branch of Acquisitions Incorporated. However, due to misguided faith in his own magical prowess (due in part to illusions cast by the wizard Jim Darkmagic of the New Hampshire Darkmagics), he was ruthlessly beaten by Flaming Fist mercenaries. Disgraced, he lived a life of petty accounting for several years until he contacted Sir Isteval to find a job."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var trickfoot = new Character
@@ -151,7 +240,7 @@ namespace TheDmScreen.Migrations
 
             var amper = new Character
             {
-                Name = "Amper", 
+                Name = "Amper Sand", 
                 Portrait = "../../Content/amper.jpg",
                 IsPlayer = true,
                 IsUnique = true,
@@ -162,7 +251,19 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Bard", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var aramil = new Character
@@ -178,7 +279,19 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Druid", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var beorn = new Character
@@ -194,7 +307,19 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Paladin", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var pecos = new Character
@@ -210,7 +335,19 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Ranger", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var timekeeper = new Character
@@ -226,7 +363,19 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Wizard", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var redbrandRuffian = new Character
@@ -241,7 +390,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var glassstaff = new Character
@@ -256,7 +412,19 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var banshee = new Character
@@ -271,7 +439,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var goblin = new Character
@@ -286,7 +461,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var wolf = new Character
@@ -301,7 +483,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var skeleton = new Character
@@ -316,7 +505,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var orc = new Character
@@ -331,7 +527,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var nothic = new Character
@@ -346,7 +549,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var hobgoblin = new Character
@@ -361,7 +571,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var bugbear = new Character
@@ -376,7 +593,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var commoner = new Character
@@ -391,7 +615,14 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             context.Characters.AddOrUpdate(
