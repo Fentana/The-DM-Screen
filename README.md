@@ -22,9 +22,10 @@ Note: You will need Visual Studio 2013 or later!
 
 If you run into issues where the NuGet Package Manager concole spits out `Cannot attach the file '\The-Dm-Screen\The DM's Screen\App_Data\DmScreenContext.mdf' as database 'DmScreenContext'.` or similar, execute the following commands:
 
-1. `SqlLocalDB.exe stop MSSQLLocalDB`
-2. `SqlLocalDB.exe delete MSSQLLocalDB`
-3. `Update-Database`
+1. Delete the DmScreenContext.mdf file
+2. `SqlLocalDB.exe stop MSSQLLocalDB` in the NuGet Package Manager
+3. `SqlLocalDB.exe delete MSSQLLocalDB`
+4. `Update-Database`
 
 ##Things to consider
 * Need authentication for DM, at the very least. Only one person should be able to add to the encounter feed
