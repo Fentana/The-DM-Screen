@@ -19,7 +19,8 @@ namespace TheDmScreen.Models
         // Summaries
         public int Age { get; set; }
         public string Status { get; set; } // Deceased?
-        public virtual ICollection<string> ClassesAndLevels { get; set; } 
+        public string Allegiance { get; set; }
+        public virtual ICollection<ClassAndLevel> ClassesAndLevels { get; set; } 
         public virtual ICollection<WikiSection> WikiSections { get; set; }
 
         // Stats
@@ -33,6 +34,8 @@ namespace TheDmScreen.Models
         public Character()
         {
             Inventory = new List<Inventory>();
+            WikiSections = new List<WikiSection>();
+            ClassesAndLevels = new List<ClassAndLevel>();
         }
     }
 }

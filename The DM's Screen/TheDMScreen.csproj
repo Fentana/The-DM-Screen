@@ -126,6 +126,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\Campaign.cs" />
     <Compile Include="Models\Database\Character.cs" />
+    <Compile Include="Models\Database\ClassAndLevel.cs" />
     <Compile Include="Models\DmScreenContext.cs" />
     <Compile Include="Models\Database\Encounter.cs" />
     <Compile Include="Models\Database\Episode.cs" />
