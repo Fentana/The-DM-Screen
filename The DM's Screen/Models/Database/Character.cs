@@ -12,9 +12,9 @@ namespace TheDmScreen.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Portrait { get; set; }
-        public bool IsPlayer { get; set; }
-        public bool IsUnique { get; set; }
+        public CharacterType Type { get; set; }
         public virtual ICollection<Inventory> Inventory { get; set; }
+        public virtual Campaign Campaign { get; set; }
 
         // Summaries
         public int Age { get; set; }
@@ -37,5 +37,14 @@ namespace TheDmScreen.Models
             WikiSections = new List<WikiSection>();
             ClassesAndLevels = new List<ClassAndLevel>();
         }
+    }
+
+    public enum CharacterType
+    {
+        Player,         // Players
+        ListedUnique,   // NPCs or unique monsters that should be listed in the Dossier
+        UnlistedUnique, // NPCs or unique monsters that should not be listed in the Dossier
+        Template,       // Something like "Half-Dragon Template"
+        Generic         // Goblins, etc.
     }
 }

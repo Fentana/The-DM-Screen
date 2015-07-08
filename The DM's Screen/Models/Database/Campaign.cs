@@ -12,6 +12,5 @@ namespace TheDmScreen.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public virtual ICollection<Episode> Episodes { get; set; }
-        public virtual ICollection<Character> Characters { get; set; }
     }
 }

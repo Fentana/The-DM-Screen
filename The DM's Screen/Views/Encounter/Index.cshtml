@@ -76,22 +76,7 @@
     <!--Hiddens-->
     <input type="hidden" id="episodeId" value="@Model.Id" />
 
-    <!--Footer-->
-    <footer class="row">
-        <div class="large-12 columns">
-            <hr />
-            <div class="row">
-                <div class="large-5 columns">
-                    <p>© Copyright Evan Kirsch 2015</p>
-                </div>
-                <div class="large-7 columns">
-                    <ul class="inline-list right">
-                        <li><a href="https://github.com/etkirsch/The-DM-Screen">See the source at Github</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @Html.Partial("~/Views/Common/Footer.cshtml")
 </body>
 
 <script>

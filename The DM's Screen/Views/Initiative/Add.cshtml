@@ -49,9 +49,12 @@
                     url: '@Url.Action("AutoComplete", "Initiative")',
                     data: { encounterId: $("#encounterId").val(), term: request.term },
                     success: function (data) {
-                        response($.map(data, function(item) {
+                        response($.map(data, function (item) {
                             return { label: item.Name, value: item.Id };
                         }));
+                    },
+                    error: function (xhr) {
+                        alert("Oops, something got screwed up here");
                     }
                 });
             },

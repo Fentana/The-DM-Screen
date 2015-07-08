@@ -1,4 +1,4 @@
-﻿@model TheDmScreen.Models.Campaign
+﻿@model TheDmScreen.Models.Views.EpisodeIndexModel
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <link rel="stylesheet" href="../../Scripts/Foundation/css/foundation.css">
@@ -11,8 +11,8 @@
 
     <!--Title Bar-->
     <div class="row large-centered">
-        <h2>@Model.Name</h2>
-        <p>@Model.Description</p>
+        <h2>@Model.Campaign.Name</h2>
+        <p>@Model.Campaign.Description</p>
         <hr />
     </div>
 
@@ -38,7 +38,7 @@
 
         <!--Episode Index-->
         <div class="panel large-9 columns">
-            @foreach (var episode in Model.Episodes.OrderBy(p => p.Order))
+            @foreach (var episode in Model.Campaign.Episodes.OrderBy(p => p.Order))
             {
                 // We don't want one of these spacers if there's only one campaign in the index
                 if (numberOfCampaigns++ > 0)
@@ -60,7 +60,7 @@
 
         <!--Dossier-->
         <div class="large-3 columns hide-for-small">
-            @foreach (var character in Model.Characters.Where(m => m.IsUnique))
+            @foreach (var character in Model.Dossier.OrderBy(m => m.Type).ThenBy(n => n.Name))
             {
                 <div class="row large-text-center">
                     <div class="large-centered large-10 columns">
@@ -79,24 +79,9 @@
     </div>
 
     <!--Hiddens-->
-    <input type="hidden" id="campaignId" value="@Model.Id" />
+    <input type="hidden" id="campaignId" value="@Model.Campaign.Id" />
 
-    <!--footer-->
-    <footer class="row">
-        <div class="large-12 columns">
-            <hr />
-            <div class="row">
-                <div class="large-5 columns">
-                    <p>© Copyright Evan Kirsch 2015</p>
-                </div>
-                <div class="large-7 columns">
-                    <ul class="inline-list right">
-                        <li><a href="https://github.com/etkirsch/The-DM-Screen">See the source at Github</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @Html.Partial("~/Views/Common/Footer.cshtml")
 </body>
 
 <script>

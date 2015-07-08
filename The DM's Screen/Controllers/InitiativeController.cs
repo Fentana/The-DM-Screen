@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TheDmScreen.Models;
+using TheDmScreen.Models.Views;
 
 namespace TheDmScreen.Controllers
 {
@@ -19,15 +20,23 @@ namespace TheDmScreen.Controllers
         [HttpGet]
         public JsonResult Autocomplete(int encounterId, string term)
         {
-            var uniquePlayers = _context.Campaigns.First(
-                e => e.Episodes.Any(f => f.Encounters.Any(g => g.Id.Equals(encounterId)))).Characters;
-            var nonuniquePlayers = _context.Characters.Where(c => !c.IsUnique);
+            var campaign = _context.Campaigns.First(e => e.Episodes.Any(f => f.Encounters.Any(g => g.Id.Equals(encounterId))));
+            var campaignExclusives = _context.Characters.Where(c => c.Campaign.Id == campaign.Id);
+            var nonexclusives = _context.Characters.Where(c => c.Campaign == null);
 
-            var results = uniquePlayers.Concat(nonuniquePlayers);
+            var possibilities = campaignExclusives.Concat(nonexclusives).ToList();
 
-            return Json(results.Where(
+            var preresults = possibilities.Where(
                 item => item.Name.IndexOf(term,
-                    StringComparison.InvariantCultureIgnoreCase) >= 0), JsonRequestBehavior.AllowGet);
+                    StringComparison.InvariantCultureIgnoreCase) >= 0);
+
+            var results = preresults.Select(result => new TruncatedCharacter()
+            {
+                Id = result.Id, 
+                Name = result.Name
+            }).ToList();
+
+            return Json(results, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

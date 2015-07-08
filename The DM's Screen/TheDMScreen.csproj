@@ -135,6 +135,8 @@
     <Compile Include="Models\Views\EditEntryViewModel.cs" />
     <Compile Include="Models\Database\EncounterFeedEntry.cs" />
     <Compile Include="Models\Database\Initiative.cs" />
+    <Compile Include="Models\Views\EpisodeIndexModel.cs" />
+    <Compile Include="Models\Views\TruncatedCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +158,7 @@
     <Content Include="Content\Characters\timekeeper.jpg" />
     <Content Include="Content\Characters\Varo.JPG" />
     <Content Include="Content\Characters\hellbaby.gif" />
+    <Content Include="Content\Characters\vyerith.jpg" />
     <Content Include="Content\Monsters\hobgoblin.png" />
     <Content Include="Content\Maps\location.PNG" />
     <Content Include="Content\Monsters\banshee.jpg" />
@@ -163,6 +166,7 @@
     <Content Include="Content\Monsters\commoner.jpg" />
     <Content Include="Content\Monsters\goblin.jpg" />
     <Content Include="Content\Monsters\Orc.JPG" />
+    <Content Include="Content\Monsters\owlbear.jpg" />
     <Content Include="Content\Monsters\ruffian.jpg" />
     <Content Include="Content\Monsters\skeleton.jpg" />
     <Content Include="Content\Monsters\wolf.jpg" />
@@ -241,6 +245,7 @@
     <Content Include="Views\Encounter\Add.cshtml" />
     <Content Include="Views\Episode\Add.cshtml" />
     <Content Include="Views\Character\Details.cshtml" />
+    <Content Include="Views\Common\Footer.cshtml" />
     <None Include="Views\Encounter\Partials\EditEntry.cshtml" />
   </ItemGroup>
   <PropertyGroup>

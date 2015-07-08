@@ -20,12 +20,26 @@ namespace TheDmScreen.Migrations
 
         protected override void Seed(TheDmScreen.Models.DmScreenContext context)
         {
+            var tyrannyOfDragons = new Campaign
+            {
+                Name = "The Tyranny of Dragons",
+                Description =
+                    "The Cult of the Dragon has risen in full force to summon the evil diety Tiamat from her imprisonment in Acheron, and only a ragtag group of adventurers can help unite the Sword Coast to stop them.",
+            };
+
+            var phandelver = new Campaign
+            {
+                Name = "Lost Mines of Phandelver",
+                Description =
+                    "The recently re-established pioneer town of Phandalin is being infiltrated by an unknown force, and it's a race to see who can find the spellforge within the Lost Mine of Phandelver: Wave Echo Cave.",
+            };
+
             // Characters
             var dm = new Character
             {
                 Name = "Dungeon Master",
                 Portrait = "../../Content/Characters/dungeonmaster.jpg",
-                IsPlayer = false, IsUnique = true,
+                Type = CharacterType.Player,
                 Age = 1000,
                 Status = "Omnipresent",
                 Allegiance = "The System",
@@ -52,10 +66,10 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Ellywick",
                 Portrait = "../../Content/Characters/ellywick.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
+                Campaign = tyrannyOfDragons,
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
@@ -81,11 +95,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Jaq Hellbaby",
                 Portrait = "../../Content/Characters/hellbaby.gif",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Church of Tim",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Warlock", Level = 8 }
@@ -109,11 +123,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Adun Steelbeard",
                 Portrait = "../../Content/Characters/steelbeard.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Church of Dawn",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Cleric", Level = 9 }
@@ -137,11 +151,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Randy Magnosh",
                 Portrait = "../../Content/Characters/randy.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Church of Tim",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Barbarian", Level = 5 }
@@ -165,11 +179,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Varo Latrellis",
                 Portrait = "../../Content/Characters/varo.jpg",
-                IsPlayer = false,
-                IsUnique = true,
+                Type = CharacterType.ListedUnique,
                 Status = "Killed in Action",
                 Allegiance = "Church of Tim",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Artificer", Level = 6 }
@@ -193,11 +207,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Jeff",
                 Portrait = "../../Content/Characters/jeff.jpg",
-                IsPlayer = false,
-                IsUnique = true,
+                Type = CharacterType.ListedUnique,
                 Status = "Unknown",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="???", Level = 8 }
@@ -226,11 +240,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Trickfoot",
                 Portrait = "../../Content/Characters/trickfoot.png",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Bard", Level = 9 }
@@ -249,11 +263,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Amper Sand",
                 Portrait = "../../Content/Characters/amper.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Bard", Level = 2 }
@@ -277,11 +291,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Aramil",
                 Portrait = "../../Content/Characters/aramil.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Druid", Level = 2 }
@@ -305,11 +319,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Beorn Goddart",
                 Portrait = "../../Content/Characters/beorn.gif",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Church of Torm",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Paladin", Level = 2 }
@@ -333,11 +347,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Pecos",
                 Portrait = "../../Content/Characters/pecos.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Ranger", Level = 2 }
@@ -361,11 +375,11 @@ namespace TheDmScreen.Migrations
             {
                 Name = "The Time Keeper",
                 Portrait = "../../Content/Characters/timekeeper.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Wizard", Level = 2 }
@@ -387,12 +401,12 @@ namespace TheDmScreen.Migrations
 
             var redbrandRuffian = new Character
             {
-                Name = "Redbrand Ruffian", 
+                Name = "Redbrand Ruffian",
                 Portrait = "../../Content/Monsters/ruffian.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
@@ -411,10 +425,10 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Glass Staff",
                 Portrait = "../../Content/Characters/glassstaff.jpg",
-                IsPlayer = false,
-                IsUnique = true,
+                Type = CharacterType.UnlistedUnique,
                 Allegiance = "Redbrand Marauders",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
@@ -434,12 +448,55 @@ namespace TheDmScreen.Migrations
                 }
             };
 
+            var kingGrol = new Character
+            {
+                Name = "King Grol",
+                Portrait = "../../Content/Characters/kinggrol.jpg",
+                Type = CharacterType.ListedUnique,
+                Allegiance = "Cragmaw Clan",
+                Age = 1000,
+                Campaign = phandelver,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 3 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
+            var vyerith = new Character
+            {
+                Name = "Vyerith",
+                Portrait = "../../Content/Characters/vyerith.jpg",
+                Type = CharacterType.ListedUnique,
+                Allegiance = "The Black Spider",
+                Age = 1000,
+                Campaign = phandelver,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 3 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
             var banshee = new Character
             {
                 Name = "Banshee",
                 Portrait = "../../Content/Monsters/banshee.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
@@ -460,30 +517,7 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Goblin",
                 Portrait = "../../Content/Monsters/goblin.jpg",
-                IsPlayer = false,
-                IsUnique = false,
-                Allegiance = "",
-                Age = 1000,
-                ClassesAndLevels = new List<ClassAndLevel>()
-                {
-                    new ClassAndLevel() { Class="CR", Level = 1 }
-                },
-                WikiSections = new List<WikiSection>
-                {
-                    new WikiSection()
-                    {
-                        Title = "Significant Event",
-                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
-                    }
-                }
-            };
-
-            var wolf = new Character
-            {
-                Name = "Wolf",
-                Portrait = "../../Content/Monsters/wolf.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
@@ -504,30 +538,7 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Skeleton",
                 Portrait = "../../Content/Monsters/skeleton.jpg",
-                IsPlayer = false,
-                IsUnique = false,
-                Allegiance = "",
-                Age = 1000,
-                ClassesAndLevels = new List<ClassAndLevel>()
-                {
-                    new ClassAndLevel() { Class="CR", Level = 1 }
-                },
-                WikiSections = new List<WikiSection>
-                {
-                    new WikiSection()
-                    {
-                        Title = "Significant Event",
-                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
-                    }
-                }
-            };
-
-            var orc = new Character
-            {
-                Name = "Orc",
-                Portrait = "../../Content/Monsters/Orc.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
@@ -548,8 +559,49 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Nothic",
                 Portrait = "../../Content/Monsters/nothic.png",
-                IsPlayer = false,
-                IsUnique = false,
+                Type = CharacterType.Generic,
+                Allegiance = "",
+                Age = 1000,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 1 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
+            var orc = new Character
+            {
+                Name = "Orc",
+                Portrait = "../../Content/Monsters/Orc.jpg",
+                Type = CharacterType.Generic,
+                Allegiance = "",
+                Age = 1000,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 1 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
+            var owlbear = new Character
+            {
+                Name = "Owlbear",
+                Portrait = "../../Content/Monsters/owlbear.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
@@ -570,8 +622,7 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Hobgoblin",
                 Portrait = "../../Content/Monsters/hobgoblin.png",
-                IsPlayer = false,
-                IsUnique = false,
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
@@ -591,9 +642,8 @@ namespace TheDmScreen.Migrations
             var bugbear = new Character
             {
                 Name = "Bugbear",
-                Portrait = "../../Content/Monsters/bugbear.png",
-                IsPlayer = false,
-                IsUnique = false,
+                Portrait = "../../Content/Monsters/bugbear.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
@@ -614,8 +664,28 @@ namespace TheDmScreen.Migrations
             {
                 Name = "Commoner",
                 Portrait = "../../Content/Monsters/commoner.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Type = CharacterType.Generic,
+                Allegiance = "",
+                Age = 1000,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 1 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
+            var wolf = new Character
+            {
+                Name = "Wolf",
+                Portrait = "../../Content/Monsters/wolf.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
@@ -639,10 +709,10 @@ namespace TheDmScreen.Migrations
                 ellywick, hellbaby, steelbeard, trickfoot, randy, jeff, varo,
 
                 // Lost Mines of Phandelver
-                amper, aramil, beorn, pecos, timekeeper, redbrandRuffian, glassstaff,
+                amper, aramil, beorn, pecos, timekeeper, redbrandRuffian, glassstaff, kingGrol, vyerith,
 
                 // Others
-                banshee, goblin, wolf, skeleton, orc, nothic, hobgoblin, bugbear, commoner);
+                banshee, goblin, wolf, skeleton, orc, nothic, hobgoblin, bugbear, commoner, owlbear);
 
             var scuffle = new Encounter()
             {
@@ -736,22 +806,13 @@ namespace TheDmScreen.Migrations
                 Encounters = new List<Encounter>() { scuffle }
             };
 
+            tyrannyOfDragons.Episodes = new List<Episode>() {devastation};
+            phandelver.Episodes = new List<Episode>() {phandalin};
+
             context.Campaigns.AddOrUpdate(
                 p => p.Name,
-                new Campaign
-                {
-                    Name = "The Tyranny of Dragons",
-                    Description = "The Cult of the Dragon has risen in full force to summon the evil diety Tiamat from her imprisonment in Acheron, and only a ragtag group of adventurers can help unite the Sword Coast to stop them.",
-                    Characters = new List<Character> { ellywick, hellbaby, steelbeard, trickfoot, randy, jeff, varo },
-                    Episodes = new List<Episode>() { devastation }
-                },
-                new Campaign
-                {
-                    Name = "Lost Mines of Phandelver",
-                    Description = "The recently re-established pioneer town of Phandalin is being infiltrated by an unknown force, and it's a race to see who can find the spellforge within the Lost Mine of Phandelver: Wave Echo Cave.",
-                    Characters = new List<Character> { amper, aramil, beorn, pecos, timekeeper, redbrandRuffian, glassstaff },
-                    Episodes = new List<Episode>() { phandalin }
-                });
+
+                tyrannyOfDragons, phandelver);
         }
     }
 }
