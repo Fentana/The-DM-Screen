@@ -534,6 +534,27 @@ namespace TheDmScreen.Migrations
                 }
             };
 
+            var grick = new Character
+            {
+                Name = "Grick",
+                Portrait = "../../Content/Monsters/grick.jpg",
+                Type = CharacterType.Generic,
+                Allegiance = "",
+                Age = 1000,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 1 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
             var skeleton = new Character
             {
                 Name = "Skeleton",
@@ -712,7 +733,7 @@ namespace TheDmScreen.Migrations
                 amper, aramil, beorn, pecos, timekeeper, redbrandRuffian, glassstaff, kingGrol, vyerith,
 
                 // Others
-                banshee, goblin, wolf, skeleton, orc, nothic, hobgoblin, bugbear, commoner, owlbear);
+                banshee, goblin, grick, wolf, skeleton, orc, nothic, hobgoblin, bugbear, commoner, owlbear);
 
             var scuffle = new Encounter()
             {
@@ -789,6 +810,22 @@ namespace TheDmScreen.Migrations
                 }
             };
 
+            var theAmbush = new Encounter()
+            {
+                BattleMapImage = "",
+                Name = "Ambush at the Gates",
+                Description = "Aramil nearly dies twice at the gates of Cragmaw Castle.",
+                Order = 2,
+                Initiatives = new List<Initiative>()
+                {
+                    new Initiative()
+                    {
+                        Character = dm,
+                        Roll = 0
+                    }
+                }
+            };
+
             var devastation = new Episode()
             {
                 Name = "On the Quest for the Air Devasatation Orb",
@@ -806,8 +843,16 @@ namespace TheDmScreen.Migrations
                 Encounters = new List<Encounter>() { scuffle }
             };
 
+            var theAbandonedCastle = new Episode()
+            {
+                Name = "Cragmaw Castle",
+                Description = "The Consultants & Dragons Gang are ambushed on the journey to Conyberry and accidentally discover Cragmaw Castle",
+                Summary = "The heroes, on their way to present Agatha the Banshee with her silver haircomb and Bowgentle's spellbook, are ambushed by goblins. On their way back to Phandalin, they are robbed by the same group of goblins. Enraged by his missing maul, Beorn Goddart demanded that the C&D gang pursue the thieves. The trail was tracked all of the way back to Cragmaw Castle, an abandoned and decaying castle inhabited by goblins and hobgoblins.",
+                Encounters = new List<Encounter>() { theAmbush }
+            };
+
             tyrannyOfDragons.Episodes = new List<Episode>() {devastation};
-            phandelver.Episodes = new List<Episode>() {phandalin};
+            phandelver.Episodes = new List<Episode>() { phandalin, theAbandonedCastle };
 
             context.Campaigns.AddOrUpdate(
                 p => p.Name,

@@ -159,6 +159,7 @@
     <Content Include="Content\Characters\Varo.JPG" />
     <Content Include="Content\Characters\hellbaby.gif" />
     <Content Include="Content\Characters\vyerith.jpg" />
+    <Content Include="Content\Monsters\grick.jpg" />
     <Content Include="Content\Monsters\hobgoblin.png" />
     <Content Include="Content\Maps\location.PNG" />
     <Content Include="Content\Monsters\banshee.jpg" />
