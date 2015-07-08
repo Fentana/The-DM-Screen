@@ -24,7 +24,7 @@ namespace TheDmScreen.Migrations
             var dm = new Character
             {
                 Name = "Dungeon Master",
-                Portrait = "../../Content/dungeonmaster.jpg",
+                Portrait = "../../Content/Characters/dungeonmaster.jpg",
                 IsPlayer = false, IsUnique = true,
                 Age = 1000,
                 Status = "Omnipresent",
@@ -50,8 +50,8 @@ namespace TheDmScreen.Migrations
 
             var ellywick = new Character
             {
-                Name = "Ellywick", 
-                Portrait = "../../Content/ellywick.jpg",
+                Name = "Ellywick",
+                Portrait = "../../Content/Characters/ellywick.jpg",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -79,8 +79,8 @@ namespace TheDmScreen.Migrations
 
             var hellbaby = new Character
             {
-                Name = "Jaq Hellbaby", 
-                Portrait = "../../Content/hellbaby.gif",
+                Name = "Jaq Hellbaby",
+                Portrait = "../../Content/Characters/hellbaby.gif",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -107,8 +107,8 @@ namespace TheDmScreen.Migrations
             
             var steelbeard = new Character
             {
-                Name = "Adun Steelbeard", 
-                Portrait = "../../Content/steelbeard.jpg",
+                Name = "Adun Steelbeard",
+                Portrait = "../../Content/Characters/steelbeard.jpg",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -135,8 +135,8 @@ namespace TheDmScreen.Migrations
 
             var randy = new Character
             {
-                Name = "Randy Magnosh", 
-                Portrait = "../../Content/randy.jpg",
+                Name = "Randy Magnosh",
+                Portrait = "../../Content/Characters/randy.jpg",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -163,8 +163,8 @@ namespace TheDmScreen.Migrations
 
             var varo = new Character
             {
-                Name = "Varo Latrellis", 
-                Portrait = "../../Content/varo.jpg",
+                Name = "Varo Latrellis",
+                Portrait = "../../Content/Characters/varo.jpg",
                 IsPlayer = false,
                 IsUnique = true,
                 Status = "Killed in Action",
@@ -191,8 +191,8 @@ namespace TheDmScreen.Migrations
 
             var jeff = new Character
             {
-                Name = "Jeff", 
-                Portrait = "../../Content/jeff.jpg",
+                Name = "Jeff",
+                Portrait = "../../Content/Characters/jeff.jpg",
                 IsPlayer = false,
                 IsUnique = true,
                 Status = "Unknown",
@@ -224,8 +224,8 @@ namespace TheDmScreen.Migrations
 
             var trickfoot = new Character
             {
-                Name = "Trickfoot", 
-                Portrait = "../../Content/trickfoot.png",
+                Name = "Trickfoot",
+                Portrait = "../../Content/Characters/trickfoot.png",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -235,13 +235,20 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Bard", Level = 9 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var amper = new Character
             {
-                Name = "Amper Sand", 
-                Portrait = "../../Content/amper.jpg",
+                Name = "Amper Sand",
+                Portrait = "../../Content/Characters/amper.jpg",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -268,8 +275,8 @@ namespace TheDmScreen.Migrations
 
             var aramil = new Character
             {
-                Name = "Aramil", 
-                Portrait = "../../Content/aramil.jpg",
+                Name = "Aramil",
+                Portrait = "../../Content/Characters/aramil.jpg",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -297,7 +304,7 @@ namespace TheDmScreen.Migrations
             var beorn = new Character
             {
                 Name = "Beorn Goddart",
-                Portrait = "../../Content/beorn.gif",
+                Portrait = "../../Content/Characters/beorn.gif",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -324,8 +331,8 @@ namespace TheDmScreen.Migrations
 
             var pecos = new Character
             {
-                Name = "Pecos", 
-                Portrait = "../../Content/pecos.jpg",
+                Name = "Pecos",
+                Portrait = "../../Content/Characters/pecos.jpg",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -352,8 +359,8 @@ namespace TheDmScreen.Migrations
 
             var timekeeper = new Character
             {
-                Name = "The Time Keeper", 
-                Portrait = "../../Content/timekeeper.jpg",
+                Name = "The Time Keeper",
+                Portrait = "../../Content/Characters/timekeeper.jpg",
                 IsPlayer = true,
                 IsUnique = true,
                 Status = "Alive",
@@ -381,7 +388,7 @@ namespace TheDmScreen.Migrations
             var redbrandRuffian = new Character
             {
                 Name = "Redbrand Ruffian", 
-                Portrait = "../../Content/ruffian.jpg",
+                Portrait = "../../Content/Monsters/ruffian.jpg",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",
@@ -402,8 +409,8 @@ namespace TheDmScreen.Migrations
 
             var glassstaff = new Character
             {
-                Name = "Glass Staff", 
-                Portrait = "../../Content/glassstaff.jpg",
+                Name = "Glass Staff",
+                Portrait = "../../Content/Characters/glassstaff.jpg",
                 IsPlayer = false,
                 IsUnique = true,
                 Allegiance = "Redbrand Marauders",
@@ -429,8 +436,8 @@ namespace TheDmScreen.Migrations
 
             var banshee = new Character
             {
-                Name = "Banshee", 
-                Portrait = "../../Content/banshee.jpg",
+                Name = "Banshee",
+                Portrait = "../../Content/Monsters/banshee.jpg",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",
@@ -451,8 +458,8 @@ namespace TheDmScreen.Migrations
 
             var goblin = new Character
             {
-                Name = "Goblin", 
-                Portrait = "../../Content/goblin.jpg",
+                Name = "Goblin",
+                Portrait = "../../Content/Monsters/goblin.jpg",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",
@@ -473,8 +480,8 @@ namespace TheDmScreen.Migrations
 
             var wolf = new Character
             {
-                Name = "Wolf", 
-                Portrait = "../../Content/wolf.jpg",
+                Name = "Wolf",
+                Portrait = "../../Content/Monsters/wolf.jpg",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",
@@ -495,8 +502,8 @@ namespace TheDmScreen.Migrations
 
             var skeleton = new Character
             {
-                Name = "Skeleton", 
-                Portrait = "../../Content/skeleton.jpg",
+                Name = "Skeleton",
+                Portrait = "../../Content/Monsters/skeleton.jpg",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",
@@ -517,8 +524,8 @@ namespace TheDmScreen.Migrations
 
             var orc = new Character
             {
-                Name = "Orc", 
-                Portrait = "../../Content/Orc.jpg",
+                Name = "Orc",
+                Portrait = "../../Content/Monsters/Orc.jpg",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",
@@ -539,8 +546,8 @@ namespace TheDmScreen.Migrations
 
             var nothic = new Character
             {
-                Name = "Nothic", 
-                Portrait = "../../Content/nothic.png",
+                Name = "Nothic",
+                Portrait = "../../Content/Monsters/nothic.png",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",
@@ -561,8 +568,8 @@ namespace TheDmScreen.Migrations
 
             var hobgoblin = new Character
             {
-                Name = "Hobgoblin", 
-                Portrait = "../../Content/hobgoblin.png",
+                Name = "Hobgoblin",
+                Portrait = "../../Content/Monsters/hobgoblin.png",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",
@@ -583,8 +590,8 @@ namespace TheDmScreen.Migrations
 
             var bugbear = new Character
             {
-                Name = "Bugbear", 
-                Portrait = "../../Content/bugbear.png",
+                Name = "Bugbear",
+                Portrait = "../../Content/Monsters/bugbear.png",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",
@@ -605,8 +612,8 @@ namespace TheDmScreen.Migrations
 
             var commoner = new Character
             {
-                Name = "Commoner", 
-                Portrait = "../../Content/commoner.jpg",
+                Name = "Commoner",
+                Portrait = "../../Content/Monsters/commoner.jpg",
                 IsPlayer = false,
                 IsUnique = false,
                 Allegiance = "",

@@ -24,7 +24,7 @@
 <body>
     <div class="large-12 text-center columns">
         <div>
-            <h1>@Model.Name</h1><br/>
+            <h1>@Model.Name</h1><br />
         </div>
     </div>
 
@@ -74,11 +74,12 @@
         </div>
     }
 
-    <input type="hidden" id="encounterId" value="@Model.Id"/>
+    <input type="hidden" id="encounterId" value="@Model.Id" />
     <input type="hidden" id="characterId" value="@Model.Initiatives.OrderByDescending(p => p.TurnOrder).First().Character.Id" />
+
     <footer class="row">
         <div class="large-12 columns">
-            <hr/>
+            <hr />
             <div class="row">
                 <div class="large-5 columns">
                     <p>© Copyright Evan Kirsch 2015</p>

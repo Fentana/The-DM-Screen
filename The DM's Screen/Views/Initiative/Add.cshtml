@@ -50,7 +50,7 @@
                     data: { encounterId: $("#encounterId").val(), term: request.term },
                     success: function (data) {
                         response($.map(data, function(item) {
-                            return { label: item.Name, value: item.CharacterId };
+                            return { label: item.Name, value: item.Id };
                         }));
                     }
                 });
