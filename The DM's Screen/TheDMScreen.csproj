@@ -146,6 +146,7 @@
     <Content Include="Content\Characters\beorn.gif" />
     <Content Include="Content\Characters\amper.jpg" />
     <Content Include="Content\Characters\aramil.jpg" />
+    <Content Include="Content\Characters\brodorn.gif" />
     <Content Include="Content\Characters\dungeonmaster.jpg" />
     <Content Include="Content\Characters\ellywick.jpg" />
     <Content Include="Content\Characters\glassstaff.jpg" />
@@ -247,6 +248,7 @@
     <Content Include="Views\Episode\Add.cshtml" />
     <Content Include="Views\Character\Details.cshtml" />
     <Content Include="Views\Common\Footer.cshtml" />
+    <Content Include="Scripts\DmScreenCustom.css" />
     <None Include="Views\Encounter\Partials\EditEntry.cshtml" />
   </ItemGroup>
   <PropertyGroup>

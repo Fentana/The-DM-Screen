@@ -1,0 +1,20 @@
+﻿.panelSelect div>h1,
+.panelSelect div>h2,
+.panelSelect div>h3,
+.panelSelect div>h4,
+.panelSelect,
+.characterSelect {
+    transition: color 0.5s ease;
+}
+
+.panelSelect:hover div>h1,
+.panelSelect:hover div>h2,
+.panelSelect:hover div>h3,
+.panelSelect:hover div>h4,
+.panelSelect:hover,
+.characterSelect:hover {
+    color: #808080;
+    cursor: hand;
+}
+
+.characterSelect

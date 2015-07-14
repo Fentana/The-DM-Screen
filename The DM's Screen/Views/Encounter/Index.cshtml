@@ -2,9 +2,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <link rel="stylesheet" href="../../Scripts/Foundation/css/foundation.css">
+<link rel="stylesheet" href="../../Scripts/DmScreenCustom.css"/>
 <script src="../../Scripts/Foundation/js/foundation.min.js"></script>
 <script src="../../Scripts/Foundation/js/foundation/foundation.reveal.js"></script>
-
 
 @{ var numberOfEntries = 0;}
 
@@ -43,7 +43,7 @@
                 {
                     <hr />
                 }
-                <div class="row encounterSelect" id="@encounter.Id">
+                <div class="row encounterSelect panelSelect" id="@encounter.Id">
                     <div class="large-centered large-10 columns">
                         <div class="row">
                             <h4>@encounter.Name</h4>
@@ -89,21 +89,21 @@
         element.style.height = (element.scrollHeight) + "px";
     }
 
-    $(document).ready(function () {
-        $("#addEncounter").click(function () {
+    $(document).ready(function() {
+        $("#addEncounter").click(function() {
             var data = { episodeId: $("#episodeId").attr("value") };
 
             $("#myModal").foundation("reveal", "open", {
-                url: '@Url.Action("Add","Encounter")',
+                url: '@Url.Action("Add", "Encounter")',
                 data: data,
-                error: function () {
+                error: function() {
                     alert('failed loading modal');
                 }
             });
         });
 
-        $(".encounterSelect").click(function () {
-            var url = '@Url.Action("Encounter", "Encounter", new { encounterId = "__id__" })';
+        $(".encounterSelect").click(function() {
+            var url = '@Url.Action("Encounter", "Encounter", new {encounterId = "__id__"})';
             window.location.href = url.replace('__id__', $(this).attr("id"));
         });
     });

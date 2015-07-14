@@ -51,7 +51,7 @@ namespace TheDmScreen.Controllers
         public JsonResult Add(int encounterId, int characterId, int roll)
         {
             var encounter = _context.Encounters.First(e => e.Id.Equals(encounterId));
-            var character = _context.Characters.First(e => e.Id.Equals(characterId));
+            var character = _context.Characters.First(c => c.Id.Equals(characterId));
 
             encounter.Initiatives.Add(new Initiative()
             {
