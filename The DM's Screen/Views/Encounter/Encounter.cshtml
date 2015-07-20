@@ -24,7 +24,7 @@
 <body>
     <div class="large-12 text-center columns">
         <div>
-            <h1>@Model.Name</h1><br/>
+            <h1>@Model.Name</h1><br />
         </div>
     </div>
 
@@ -74,21 +74,8 @@
         </div>
     }
 
-    <input type="hidden" id="encounterId" value="@Model.EncounterId"/>
-    <input type="hidden" id="characterId" value="@Model.Initiatives.OrderByDescending(p=>p.TurnOrder).First().Character.CharacterId" />
-    <footer class="row">
-        <div class="large-12 columns">
-            <hr/>
-            <div class="row">
-                <div class="large-5 columns">
-                    <p>© Copyright Evan Kirsch 2015</p>
-                </div>
-                <div class="large-7 columns">
-                    <ul class="inline-list right">
-                        <li><a href="#">Relevant Page here</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <input type="hidden" id="encounterId" value="@Model.Id" />
+    <input type="hidden" id="characterId" value="@Model.Initiatives.OrderByDescending(p => p.TurnOrder).First().Character.Id" />
+
+    @Html.Partial("~/Views/Common/Footer.cshtml")
 </body>

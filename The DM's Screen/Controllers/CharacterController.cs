@@ -18,7 +18,7 @@ namespace TheDmScreen.Controllers
 
         public ActionResult Details(int id = 1)
         {
-            var character = context.Characters.First(c => c.CharacterId == id);
+            var character = context.Characters.First(c => c.Id == id);
 
             return View(character);
         }

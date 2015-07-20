@@ -20,12 +20,26 @@ namespace TheDmScreen.Migrations
 
         protected override void Seed(TheDmScreen.Models.DmScreenContext context)
         {
+            var tyrannyOfDragons = new Campaign
+            {
+                Name = "The Tyranny of Dragons",
+                Description =
+                    "The Cult of the Dragon has risen in full force to summon the evil diety Tiamat from her imprisonment in Acheron, and only a ragtag group of adventurers can help unite the Sword Coast to stop them.",
+            };
+
+            var phandelver = new Campaign
+            {
+                Name = "Lost Mines of Phandelver",
+                Description =
+                    "The recently re-established pioneer town of Phandalin is being infiltrated by an unknown force, and it's a race to see who can find the spellforge within the Lost Mine of Phandelver: Wave Echo Cave.",
+            };
+
             // Characters
             var dm = new Character
             {
                 Name = "Dungeon Master",
-                Portrait = "../../Content/dungeonmaster.jpg",
-                IsPlayer = false, IsUnique = true,
+                Portrait = "../../Content/Characters/dungeonmaster.jpg",
+                Type = CharacterType.Player,
                 Age = 1000,
                 Status = "Omnipresent",
                 Allegiance = "The System",
@@ -33,365 +47,680 @@ namespace TheDmScreen.Migrations
                 {
                     new ClassAndLevel() { Class="Master", Level = 20 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var ellywick = new Character
             {
-                Name = "Ellywick", 
-                Portrait = "../../Content/ellywick.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Name = "Ellywick",
+                Portrait = "../../Content/Characters/ellywick.jpg",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
+                Campaign = tyrannyOfDragons,
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class = "Rogue", Level = 6 },
                     new ClassAndLevel() { Class = "Wizard", Level = 3 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var hellbaby = new Character
             {
-                Name = "Hellbaby", 
-                Portrait = "../../Content/hellbaby.gif",
-                IsPlayer = true,
-                IsUnique = true,
+                Name = "Jaq Hellbaby",
+                Portrait = "../../Content/Characters/hellbaby.gif",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Church of Tim",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Warlock", Level = 8 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
             
             var steelbeard = new Character
             {
-                Name = "Steelbeard", 
-                Portrait = "../../Content/steelbeard.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Name = "Adun Steelbeard",
+                Portrait = "../../Content/Characters/steelbeard.jpg",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Church of Dawn",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Cleric", Level = 9 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var randy = new Character
             {
-                Name = "Randy", 
-                Portrait = "../../Content/randy.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Name = "Randy Magnosh",
+                Portrait = "../../Content/Characters/randy.jpg",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Church of Tim",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Barbarian", Level = 5 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var varo = new Character
             {
-                Name = "Varo", 
-                Portrait = "../../Content/varo.jpg",
-                IsPlayer = false,
-                IsUnique = true,
+                Name = "Varo Latrellis",
+                Portrait = "../../Content/Characters/varo.jpg",
+                Type = CharacterType.ListedUnique,
                 Status = "Killed in Action",
                 Allegiance = "Church of Tim",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Artificer", Level = 6 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var jeff = new Character
             {
-                Name = "Jeff", 
-                Portrait = "../../Content/jeff.jpg",
-                IsPlayer = false,
-                IsUnique = true,
+                Name = "Jeff",
+                Portrait = "../../Content/Characters/jeff.jpg",
+                Type = CharacterType.ListedUnique,
                 Status = "Unknown",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="???", Level = 8 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Acquisitions Incorporated",
+                        ContentBody = "Before he was hired by Sir Isteval to manage the Church of Tim's establishment, Jeff was the manager of the Waterdeep branch of Acquisitions Incorporated. However, due to misguided faith in his own magical prowess (due in part to illusions cast by the wizard Jim Darkmagic of the New Hampshire Darkmagics), he was ruthlessly beaten by Flaming Fist mercenaries. Disgraced, he lived a life of petty accounting for several years until he contacted Sir Isteval to find a job."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var trickfoot = new Character
             {
-                Name = "Trickfoot", 
-                Portrait = "../../Content/trickfoot.png",
-                IsPlayer = true,
-                IsUnique = true,
+                Name = "Trickfoot",
+                Portrait = "../../Content/Characters/trickfoot.png",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = tyrannyOfDragons,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Bard", Level = 9 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var amper = new Character
             {
-                Name = "Amper", 
-                Portrait = "../../Content/amper.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Name = "Amper Sand",
+                Portrait = "../../Content/Characters/amper.jpg",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Bard", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var aramil = new Character
             {
-                Name = "Aramil", 
-                Portrait = "../../Content/aramil.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Name = "Aramil",
+                Portrait = "../../Content/Characters/aramil.jpg",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Druid", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var beorn = new Character
             {
                 Name = "Beorn Goddart",
-                Portrait = "../../Content/beorn.gif",
-                IsPlayer = true,
-                IsUnique = true,
+                Portrait = "../../Content/Characters/beorn.gif",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Church of Torm",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Paladin", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var pecos = new Character
             {
-                Name = "Pecos", 
-                Portrait = "../../Content/pecos.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Name = "Pecos",
+                Portrait = "../../Content/Characters/pecos.jpg",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Ranger", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var timekeeper = new Character
             {
-                Name = "The Time Keeper", 
-                Portrait = "../../Content/timekeeper.jpg",
-                IsPlayer = true,
-                IsUnique = true,
+                Name = "The Time Keeper",
+                Portrait = "../../Content/Characters/timekeeper.jpg",
+                Type = CharacterType.Player,
                 Status = "Alive",
                 Allegiance = "Unknown",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>
                 {
                     new ClassAndLevel() { Class="Wizard", Level = 2 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var redbrandRuffian = new Character
             {
-                Name = "Redbrand Ruffian", 
-                Portrait = "../../Content/ruffian.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Name = "Redbrand Ruffian",
+                Portrait = "../../Content/Monsters/ruffian.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var glassstaff = new Character
             {
-                Name = "Glass Staff", 
-                Portrait = "../../Content/glassstaff.jpg",
-                IsPlayer = false,
-                IsUnique = true,
+                Name = "Glass Staff",
+                Portrait = "../../Content/Characters/glassstaff.jpg",
+                Type = CharacterType.UnlistedUnique,
                 Allegiance = "Redbrand Marauders",
                 Age = 1000,
+                Campaign = phandelver,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    },
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
+            var kingGrol = new Character
+            {
+                Name = "King Grol",
+                Portrait = "../../Content/Characters/kinggrol.jpg",
+                Type = CharacterType.ListedUnique,
+                Allegiance = "Cragmaw Clan",
+                Age = 1000,
+                Campaign = phandelver,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 3 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
+            var vyerith = new Character
+            {
+                Name = "Vyerith",
+                Portrait = "../../Content/Characters/vyerith.jpg",
+                Type = CharacterType.ListedUnique,
+                Allegiance = "The Black Spider",
+                Age = 1000,
+                Campaign = phandelver,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 3 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var banshee = new Character
             {
-                Name = "Banshee", 
-                Portrait = "../../Content/banshee.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Name = "Banshee",
+                Portrait = "../../Content/Monsters/banshee.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var goblin = new Character
             {
-                Name = "Goblin", 
-                Portrait = "../../Content/goblin.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Name = "Goblin",
+                Portrait = "../../Content/Monsters/goblin.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
-            var wolf = new Character
+            var grick = new Character
             {
-                Name = "Wolf", 
-                Portrait = "../../Content/wolf.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Name = "Grick",
+                Portrait = "../../Content/Monsters/grick.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var skeleton = new Character
             {
-                Name = "Skeleton", 
-                Portrait = "../../Content/skeleton.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Name = "Skeleton",
+                Portrait = "../../Content/Monsters/skeleton.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
-            };
-
-            var orc = new Character
-            {
-                Name = "Orc", 
-                Portrait = "../../Content/Orc.jpg",
-                IsPlayer = false,
-                IsUnique = false,
-                Allegiance = "",
-                Age = 1000,
-                ClassesAndLevels = new List<ClassAndLevel>()
+                WikiSections = new List<WikiSection>
                 {
-                    new ClassAndLevel() { Class="CR", Level = 1 }
-                },
-                WikiSections = new List<WikiSection>()
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var nothic = new Character
             {
-                Name = "Nothic", 
-                Portrait = "../../Content/nothic.png",
-                IsPlayer = false,
-                IsUnique = false,
+                Name = "Nothic",
+                Portrait = "../../Content/Monsters/nothic.png",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
+            var orc = new Character
+            {
+                Name = "Orc",
+                Portrait = "../../Content/Monsters/Orc.jpg",
+                Type = CharacterType.Generic,
+                Allegiance = "",
+                Age = 1000,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 1 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
+            var owlbear = new Character
+            {
+                Name = "Owlbear",
+                Portrait = "../../Content/Monsters/owlbear.jpg",
+                Type = CharacterType.Generic,
+                Allegiance = "",
+                Age = 1000,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 1 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var hobgoblin = new Character
             {
-                Name = "Hobgoblin", 
-                Portrait = "../../Content/hobgoblin.png",
-                IsPlayer = false,
-                IsUnique = false,
+                Name = "Hobgoblin",
+                Portrait = "../../Content/Monsters/hobgoblin.png",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var bugbear = new Character
             {
-                Name = "Bugbear", 
-                Portrait = "../../Content/bugbear.png",
-                IsPlayer = false,
-                IsUnique = false,
+                Name = "Bugbear",
+                Portrait = "../../Content/Monsters/bugbear.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             var commoner = new Character
             {
-                Name = "Commoner", 
-                Portrait = "../../Content/commoner.jpg",
-                IsPlayer = false,
-                IsUnique = false,
+                Name = "Commoner",
+                Portrait = "../../Content/Monsters/commoner.jpg",
+                Type = CharacterType.Generic,
                 Allegiance = "",
                 Age = 1000,
                 ClassesAndLevels = new List<ClassAndLevel>()
                 {
                     new ClassAndLevel() { Class="CR", Level = 1 }
                 },
-                WikiSections = new List<WikiSection>()
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
+            };
+
+            var wolf = new Character
+            {
+                Name = "Wolf",
+                Portrait = "../../Content/Monsters/wolf.jpg",
+                Type = CharacterType.Generic,
+                Allegiance = "",
+                Age = 1000,
+                ClassesAndLevels = new List<ClassAndLevel>()
+                {
+                    new ClassAndLevel() { Class="CR", Level = 1 }
+                },
+                WikiSections = new List<WikiSection>
+                {
+                    new WikiSection()
+                    {
+                        Title = "Significant Event",
+                        ContentBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui arcu, faucibus a placerat venenatis, aliquet non nisl. Phasellus convallis eros a pharetra fermentum. Quisque venenatis erat enim, et malesuada justo vulputate gravida. Nulla feugiat ex diam, a mollis lacus iaculis id. Fusce ullamcorper quis lacus nec condimentum. Aenean ultrices arcu in semper consequat. Duis erat ex, venenatis id magna sit amet, blandit tempor nisi. Maecenas molestie turpis id augue elementum, id facilisis enim ultricies. Sed dapibus feugiat nulla."
+                    }
+                }
             };
 
             context.Characters.AddOrUpdate(
@@ -401,10 +730,10 @@ namespace TheDmScreen.Migrations
                 ellywick, hellbaby, steelbeard, trickfoot, randy, jeff, varo,
 
                 // Lost Mines of Phandelver
-                amper, aramil, beorn, pecos, timekeeper, redbrandRuffian, glassstaff,
+                amper, aramil, beorn, pecos, timekeeper, redbrandRuffian, glassstaff, kingGrol, vyerith,
 
                 // Others
-                banshee, goblin, wolf, skeleton, orc, nothic, hobgoblin, bugbear, commoner);
+                banshee, goblin, grick, wolf, skeleton, orc, nothic, hobgoblin, bugbear, commoner, owlbear);
 
             var scuffle = new Encounter()
             {
@@ -481,6 +810,22 @@ namespace TheDmScreen.Migrations
                 }
             };
 
+            var theAmbush = new Encounter()
+            {
+                BattleMapImage = "",
+                Name = "Ambush at the Gates",
+                Description = "Aramil nearly dies twice at the gates of Cragmaw Castle.",
+                Order = 2,
+                Initiatives = new List<Initiative>()
+                {
+                    new Initiative()
+                    {
+                        Character = dm,
+                        Roll = 0
+                    }
+                }
+            };
+
             var devastation = new Episode()
             {
                 Name = "On the Quest for the Air Devasatation Orb",
@@ -498,22 +843,21 @@ namespace TheDmScreen.Migrations
                 Encounters = new List<Encounter>() { scuffle }
             };
 
+            var theAbandonedCastle = new Episode()
+            {
+                Name = "Cragmaw Castle",
+                Description = "The Consultants & Dragons Gang are ambushed on the journey to Conyberry and accidentally discover Cragmaw Castle",
+                Summary = "The heroes, on their way to present Agatha the Banshee with her silver haircomb and Bowgentle's spellbook, are ambushed by goblins. On their way back to Phandalin, they are robbed by the same group of goblins. Enraged by his missing maul, Beorn Goddart demanded that the C&D gang pursue the thieves. The trail was tracked all of the way back to Cragmaw Castle, an abandoned and decaying castle inhabited by goblins and hobgoblins.",
+                Encounters = new List<Encounter>() { theAmbush }
+            };
+
+            tyrannyOfDragons.Episodes = new List<Episode>() {devastation};
+            phandelver.Episodes = new List<Episode>() { phandalin, theAbandonedCastle };
+
             context.Campaigns.AddOrUpdate(
                 p => p.Name,
-                new Campaign
-                {
-                    Name = "The Tyranny of Dragons",
-                    Description = "The Cult of the Dragon has risen in full force to summon the evil diety Tiamat from her imprisonment in Acheron, and only a ragtag group of adventurers can help unite the Sword Coast to stop them.",
-                    Characters = new List<Character> { ellywick, hellbaby, steelbeard, trickfoot, randy, jeff, varo },
-                    Episodes = new List<Episode>() { devastation }
-                },
-                new Campaign
-                {
-                    Name = "Lost Mines of Phandelver",
-                    Description = "The recently re-established pioneer town of Phandalin is being infiltrated by an unknown force, and it's a race to see who can find the spellforge within the Lost Mine of Phandelver: Wave Echo Cave.",
-                    Characters = new List<Character> { amper, aramil, beorn, pecos, timekeeper, redbrandRuffian, glassstaff },
-                    Episodes = new List<Episode>() { phandalin }
-                });
+
+                tyrannyOfDragons, phandelver);
         }
     }
 }

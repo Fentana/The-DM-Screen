@@ -4,29 +4,36 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TheDmScreen.Models;
+using TheDmScreen.Models.Views;
 
 namespace TheDmScreen.Controllers
 {
     public class EpisodeController : Controller
     {
-        private readonly DmScreenContext context;
+        private readonly DmScreenContext _context;
 
         public EpisodeController()
         {
-            context = new DmScreenContext();
+            _context = new DmScreenContext();
         }
 
         public ActionResult Index(int campaignId)
         {
-            var campaign = context.Campaigns.First(c => c.CampaignId.Equals(campaignId));
+            var campaign = _context.Campaigns.First(c => c.Id.Equals(campaignId));
+            var dossier = _context.Characters.Where(c => c.Campaign.Id == campaignId)
+                    .Where(n => n.Type == CharacterType.Player || n.Type == CharacterType.ListedUnique);
 
-            return View(campaign);
+            return View(new EpisodeIndexModel()
+            {
+                Campaign = campaign,
+                Dossier = dossier.ToList()
+            });
         }
 
         [HttpGet]
         public PartialViewResult Add(int campaignId)
         {
-            var campaign = context.Campaigns.First(c => c.CampaignId.Equals(campaignId));
+            var campaign = _context.Campaigns.First(c => c.Id.Equals(campaignId));
 
             return PartialView(campaign);
         }
@@ -34,7 +41,7 @@ namespace TheDmScreen.Controllers
         [HttpPut]
         public JsonResult Add(int campaignId, string name, string description, string summary)
         {
-            var campaign = context.Campaigns.First(c => c.CampaignId.Equals(campaignId));
+            var campaign = _context.Campaigns.First(c => c.Id.Equals(campaignId));
 
             campaign.Episodes.Add(new Episode()
             {
@@ -44,7 +51,7 @@ namespace TheDmScreen.Controllers
                 Order = campaign.Episodes.Count(),
             });
 
-            context.SaveChanges();
+            _context.SaveChanges();
 
             return Json("Yes");
         }

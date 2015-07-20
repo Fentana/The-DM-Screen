@@ -1,15 +1,20 @@
 ﻿@model TheDmScreen.Models.EditEntryViewModel
 
+<!--Modal Title Bar-->
 <div class="row">
     <h3>Edit Entry</h3>
-    <br />
+    <br/>
 </div>
+
+<!--Description Text Area-->
 <div class="row">
     <h5>Action Description</h5>
     <div class="large-12 columns">
-        <textarea onkeyup="auto_grow(this)" id="updateDescription">@Model.FeedEntry.Description</textarea>
+        <textarea onkeyup=" auto_grow(this) " id="updateDescription">@Model.FeedEntry.Description</textarea>
     </div>
 </div>
+
+<!--Options-->
 <div class="row">
     <ul class="button-group large-12 columns">
         <li id="characterName" class="button large-4 columns" data-dropdown="characterSelect" data-options="is_hover:true; hover_timeout:5000">
@@ -21,13 +26,15 @@
     <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
-<input type="hidden" id="characterId" value="@Model.FeedEntry.ActingCharacter.CharacterId" />
-<input type="hidden" id="entryId" value="@Model.FeedEntry.EncounterFeedEntryId" />
+<!--Hiddens-->
+<input type="hidden" id="characterId" value="@Model.FeedEntry.ActingCharacter.Id" />
+<input type="hidden" id="entryId" value="@Model.FeedEntry.Id" />
 
+<!--Dropdown list options-->
 <ul id="characterSelect" class="f-dropdown" data-dropdown-content>
     @foreach (var character in @Model.Initiatives)
     {
-        <li value="@character.Character.CharacterId"><a href="#">@character.Character.Name</a></li>
+        <li value="@character.Character.Id"><a href="#">@character.Character.Name</a></li>
     }
 </ul>
 

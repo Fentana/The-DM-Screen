@@ -3,6 +3,7 @@
 <h2>Add To Initiative</h2>
 
 <form>
+    <!--Character name autocompleter-->
     <div class="large-6 columns">
         <div class="row">
             <h4>Player Name</h4>
@@ -11,6 +12,8 @@
             <input id="playerNameCompleter" type="text"/>
         </div>
     </div>
+
+    <!--Initiative Roll Number Entry-->
     <div>
         <div class="large-3 columns">
             <div class="row">
@@ -21,9 +24,12 @@
             </div>
         </div>
     </div>
+
+    <!--Options (only Add at the moment)-->
     <div class="large-2 large-offset-1 columns">
         <div class="row">
-            <div><h4>Options</h4></div>
+            <div><h4>Options</h4>
+            </div>
         </div>
         <div class="row">
             <div id="addInitiativeButton" class="button">Add</div>
@@ -31,6 +37,7 @@
     </div>
 </form>
 
+<!--hiddens-->
 <input type="hidden" id="selectedCharacter" value="0" />
 
 <script>
@@ -42,9 +49,12 @@
                     url: '@Url.Action("AutoComplete", "Initiative")',
                     data: { encounterId: $("#encounterId").val(), term: request.term },
                     success: function (data) {
-                        response($.map(data, function(item) {
-                            return { label: item.Name, value: item.CharacterId };
+                        response($.map(data, function (item) {
+                            return { label: item.Name, value: item.Id };
                         }));
+                    },
+                    error: function (xhr) {
+                        alert("Oops, something got screwed up here");
                     }
                 });
             },
